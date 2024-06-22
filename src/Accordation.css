@@ -1,0 +1,101 @@
+/* src/Accordion.css */
+.accordion {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .accordion-item {
+    border-bottom: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+  }
+  
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    cursor: pointer;
+    font-size: 1.5em;
+    background-color: #F9F6F1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .accordion-header:hover {
+    background-color: #F4F1E9;
+    color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .accordion-header h3 {
+    margin: 0;
+    font-size: 1em;
+    color: black;
+    transition: font-weight 0.3s ease, color 0.3s ease;
+  }
+  
+  .accordion-item.open .accordion-header h3 {
+    font-weight: bold;
+  }
+  
+  .accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .accordion-item.open .accordion-content {
+    max-height: 1000px; /* Adjusted based on content height */
+    padding: 1.5em;
+    opacity: 1;
+  }
+  
+  .nested-accordion-item {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 10px 0;
+    transition: border-color 0.3s ease, margin 0.3s ease;
+  }
+  
+  .nested-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 1.3em;
+    background-color: #F9F6F1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .nested-accordion-header:hover {
+    background-color: #F4F1E9;
+    color: #000;
+  }
+  
+  .nested-accordion-header h4 {
+    margin: 0;
+    font-size: 1em;
+    transition: font-weight 0.3s ease, color 0.3s ease;
+    color: black;
+  }
+  
+  .nested-accordion-item.open .nested-accordion-header h4 {
+    font-weight: bold;
+  }
+  
+  .nested-accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    color: black;
+    transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .nested-accordion-item.open .nested-accordion-content {
+    max-height: 1000px; /* Adjusted based on content height */
+    padding: 0.5em 1em;
+    opacity: 1;
+  }
+  
