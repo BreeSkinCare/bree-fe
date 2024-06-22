@@ -1,49 +1,47 @@
-// Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { logoBree } from "../assets";
 import { SectionWrapper } from "../hoc";
+
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: '#white', padding: '20px 0' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <img src={logoBree} alt='logo' style={{ width: '100px', marginBottom: '10px' }} />
-          <p style={{ margin: 0, color: 'black', fontWeight: 'bold' }}>My Skin. My Singularity.</p>
-          <p style={{ margin: 0, color: 'gray' }}>France | USA</p>
+    <footer className="py-5">
+      <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row justify-between items-center sm:items-start px-4 sm:px-0">
+        <div className="flex flex-col items-center sm:items-start mb-4 sm:mb-0">
+          <img src={logoBree} alt='logo' className="w-[100px] mb-2" />
+          <p className="m-0 text-black font-bold">My Skin. My Singularity.</p>
+          <p className="m-0 text-gray-600">France | USA</p>
         </div>
-        <div>
-          <h3 style={{ margin: 0, color: 'black', fontWeight: 'bold' }}>About</h3>
-          <ul style={{ listStyleType: 'none', padding: 0, marginTop: '10px' }}>
-            <li style={{ marginBottom: '5px' }}><Link to="/" style={{ color: 'gray', textDecoration: 'none' }}>Mission</Link></li>
-            <li style={{ marginBottom: '5px' }}><Link to="/story" style={{ color: 'gray', textDecoration: 'none' }}>Story</Link></li>
-            <li style={{ marginBottom: '5px' }}><Link to="/privacy-policy" style={{ color: 'gray', textDecoration: 'none' }} 
-            link="/privacy-policy"
-            target="_blank">Privacy</Link>
-            </li>
-            <li style={{ marginBottom: '5px' }}><Link to="/bree" style={{ color: 'gray', textDecoration: 'none' }}>Bree</Link></li>
+        <div className="mb-4 sm:mb-0">
+          <h3 className="m-0 text-black font-bold">About</h3>
+          <ul className="list-none p-0 mt-2 text-center sm:text-left">
+            <li className="mb-1"><Link to="/" className="text-gray-600 no-underline">Mission</Link></li>
+            <li className="mb-1"><Link to="/story" className="text-gray-600 no-underline">Story</Link></li>
+            <li className="mb-1"><Link to="/privacy-policy" className="text-gray-600 no-underline" target="_blank">Privacy</Link></li>
+            <li className="mb-1"><Link to="/bree" className="text-gray-600 no-underline">Bree</Link></li>
+          </ul>
+        </div>
+        <div className="mb-4 sm:mb-0">
+          <h3 className="m-0 text-black font-bold">Find Us</h3>
+          <ul className="list-none p-0 mt-2 text-center sm:text-left">
+            <li className="mb-1"><a href="https://whatsapp.com" target="_blank" className="text-gray-600 no-underline">Whatsapp</a></li>
+            <li className="mb-1"><a href="https://reddit.com" target="_blank" className="text-gray-600 no-underline">Reddit</a></li>
+            <li className="mb-1"><a href="https://tiktok.com" target="_blank" className="text-gray-600 no-underline">TikTok</a></li>
+            <li className="mb-1"><a href="https://instagram.com" target="_blank" className="text-gray-600 no-underline">Instagram</a></li>
+            <li className="mb-1"><a href="https://facebook.com" target="_blank" className="text-gray-600 no-underline">Facebook</a></li>
           </ul>
         </div>
         <div>
-          <h3 style={{ margin: 0, color: 'black', fontWeight: 'bold' }}>Find Us</h3>
-          <ul style={{ listStyleType: 'none', padding: 0, marginTop: '10px' }}>
-            <li style={{ marginBottom: '5px' }}><a href="https://whatsapp.com" target="_blank" style={{ color: 'gray', textDecoration: 'none' }}>Whatsapp</a></li>
-            <li style={{ marginBottom: '5px' }}><a href="https://reddit.com" target="_blank" style={{ color: 'gray', textDecoration: 'none' }}>Reddit</a></li>
-            <li style={{ marginBottom: '5px' }}><a href="https://tiktok.com" target="_blank" style={{ color: 'gray', textDecoration: 'none' }}>TikTok</a></li>
-            <li style={{ marginBottom: '5px' }}><a href="https://instagram.com" target="_blank" style={{ color: 'gray', textDecoration: 'none' }}>Instagram</a></li>
-            <li style={{ marginBottom: '5px' }}><a href="https://facebook.com" target="_blank" style={{ color: 'gray', textDecoration: 'none' }}>Facebook</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 style={{ margin: 0, color: 'black', fontWeight: 'bold' }}>Chat With Bree</h3>
-          <ul style={{ listStyleType: 'none', padding: 0, marginTop: '10px' }}>
-            <li style={{ marginBottom: '5px' }}><a href="https://bree.health" target="_blank" style={{ color: 'gray', textDecoration: 'none' }}>Bree</a></li>
-            <li style={{ marginBottom: '5px' }}><a href="https://whatsapp.com" target="_blank" style={{ color: 'gray', textDecoration: 'none' }}>Whatsapp</a></li>
-            <li style={{ marginBottom: '5px' }}><a href="https://instagram.com" target="_blank" style={{ color: 'gray', textDecoration: 'none' }}>Instagram</a></li>
+          <h3 className="m-0 text-black font-bold">Chat With Bree</h3>
+          <ul className="list-none p-0 mt-2 text-center sm:text-left">
+            <li className="mb-1"><a href="https://bree.health" target="_blank" className="text-gray-600 no-underline">Bree</a></li>
+            <li className="mb-1"><a href="https://whatsapp.com" target="_blank" className="text-gray-600 no-underline">Whatsapp</a></li>
+            <li className="mb-1"><a href="https://instagram.com" target="_blank" className="text-gray-600 no-underline">Instagram</a></li>
           </ul>
         </div>
       </div>
     </footer>
   );
 };
+
 export default SectionWrapper(Footer, "Footer");

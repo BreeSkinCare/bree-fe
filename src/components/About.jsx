@@ -39,13 +39,15 @@ const About = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h1 className={styles.sectionHeadTextAbout} style={{textAlign:'center',fontFamily:'Raleway light'}}>Bonjour, I am Bree <br></br>
-        Your Personal Skin Assistant</h1>
+        <h1 className={`${styles.sectionHeadTextAbout} text-center font-light`}>
+          Bonjour, I am Bree <br />
+          Your Personal Skin Assistant
+        </h1>
       </motion.div>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '95vh', textAlign: 'start', fontFamily:'Raleway light' }}>
+      <div className="flex justify-center items-center min-h-screen text-start font-light px-4 sm:px-0">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          style={{ color: 'black', fontSize: 25 }}
+          className="text-black text-[18px] sm:text-[25px]"
         >
           I’m your <strong>dedicated</strong> guide on your journey to skin health,<br />
           offering you advice grounded in <strong>scientific knowledge</strong><br />
@@ -63,20 +65,6 @@ const About = () => {
           <strong>Bree</strong>
         </motion.p>
       </div>
-
-      {/* <div style={{marginTop:100}}>
-        <motion.div variants={textVariant()}>
-        <h1 className={styles.sectionHeadTextAbout}>Our Mission<br></br>
-        Build new pathways to apprehend Skin Health</h1>
-        
-      </motion.div>
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)} style={{color:'black',marginTop:50}}
-      >
-        The technological innovations of this new era will result in radical behavioural shifts: <br></br>
-        we predict that the individual-level knowledge of the skin, the body’s largest organ, will lead the game. <br></br> 
-      </motion.p>
-      </div> */}
     </>
   );
 };

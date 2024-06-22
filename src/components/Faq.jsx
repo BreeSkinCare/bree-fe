@@ -8,26 +8,25 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { Box } from "@mui/material";
 
-
 const Faq = () => {
-    return (
-      <>
-        <motion.div variants={textVariant()}>
-          <h1 className={styles.sectionHeadTextAbout} style={{fontSize:45,textAlign:'center',fontFamily:'Tomato Grotesk',textAlign:'center', alignItems:'center'}}>FAQ <br></br></h1>
-        </motion.div>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh', textAlign: 'center', fontFamily:'Raleway light' }}>
-          <motion.p
-            variants={fadeIn("", "", 0.1, 1)}
-            style={{ color: '#868686', fontSize: 20 ,fontFamily:'Tomato Grotesk Regular', marginTop:20}}
-          >
-            Should you have any inquiries about Bree, kindly see the list below for our most frequently asked questions.<br></br>
-            Should your question not be listed here, please contact us.
-          </motion.p>
+  return (
+    <>
+      <motion.div variants={textVariant()}>
+        <h1 className={`${styles.sectionHeadTextAbout} text-center font-bold text-[30px] sm:text-[45px]`}>
+          FAQ <br />
+        </h1>
+      </motion.div>
+      <div className="flex flex-col justify-center items-center min-h-[20vh] text-center font-light px-4 sm:px-0">
+        <motion.p
+          variants={fadeIn("", "", 0.1, 1)}
+          className="text-[#868686] text-[16px] sm:text-[20px] mt-4 sm:mt-0"
+        >
+          Should you have any inquiries about Bree, kindly see the list below for our most frequently asked questions.<br />
+          Should your question not be listed here, please contact us.
+        </motion.p>
+      </div>
+    </>
+  );
+};
 
-        </div>
-      </>
-    );
-  };
-  
-  export default SectionWrapper(Faq, "faq");
-  
+export default SectionWrapper(Faq, "faq");

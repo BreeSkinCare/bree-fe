@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -70,8 +70,8 @@ const ExperienceCard = ({ experience, index }) => {
         transition={{ duration: 0.5 }}
       >
         <div>
-          <h3 style={{ fontFamily: 'Montserrat Black', fontSize: 24 }}>{experience.title}</h3>
-          <p style={{ fontFamily: 'Montserrat', fontSize: 24 }}>
+          <h3 className="font-montserrat-black text-[24px]">{experience.title}</h3>
+          <p className="font-montserrat text-[24px]">
             {experience.company_name}
           </p>
         </div>
@@ -79,23 +79,23 @@ const ExperienceCard = ({ experience, index }) => {
           {experience.points.map((point, idx) => (
             <li
               key={`experience-point-${idx}`}
-              style={{ fontFamily: 'Montserrat', fontSize: 20 }}
+              className="font-montserrat text-[20px]"
             >
               {point}
             </li>
           ))}
         </ul>
-        <div className="dottedLine" style={{ marginTop: '20px' }}>
+        <div className="dottedLine mt-5">
           <svg className="mission--svg--dotted" xmlns="http://www.w3.org/2000/svg" width="398" height="1" viewBox="0 0 398 1" fill="none">
             <path d="M1 1.5H397" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="1 5" />
           </svg>
         </div>
-        <div className="animation--div" style={{ marginTop: '20px' }}>
+        <div className="animation--div mt-5">
           <Lottie
             lottieRef={animationRef}
             animationData={animations[index]}
             loop={false}
-            style={{ width: 354, marginLeft: 20 }}
+            className="max-w-full"
           />
         </div>
       </motion.div>
@@ -105,9 +105,9 @@ const ExperienceCard = ({ experience, index }) => {
 
 const Experience = () => {
   return (
-    <>
+    <div className="w-full overflow-hidden">
       <motion.div variants={textVariant()}>
-        <h2 style={{ fontFamily: 'Tomato Grotesk', color: 'black', fontSize: 30 }}>
+        <h2 className="font-tomato-grotesk text-[30px] text-black">
           How Bree Works?
         </h2>
       </motion.div>
@@ -124,16 +124,16 @@ const Experience = () => {
         </VerticalTimeline>
       </div>
 
-      <motion.div style={{ marginTop: 200 }} variants={textVariant()}>
-        <h1 className={styles.sectionHeadTextAbout} style={{ fontSize: 25, textAlign: 'left', fontFamily: 'Tomato Grotesk Regular' }}>
+      <motion.div className="mt-20" variants={textVariant()}>
+        <h1 className="font-tomato-grotesk-regular text-[25px] sm:text-[35px] text-left">
           Watch <br />
         </h1>
       </motion.div>
 
-      <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'left', textAlign: 'start', fontFamily: 'Tomato Grotesk Regular' }}>
+      <div className="text-left font-tomato-grotesk-regular">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          style={{ color: 'black', fontSize: 20, fontFamily: 'Tomato Grotesk Regular', marginTop: 20 }}
+          className="text-black text-[20px] sm:text-[25px] mt-5"
         >
           Donika highlights how singular data, combined with the power <br />
           of digital twin technology, will transform consumer behaviors.
@@ -146,32 +146,32 @@ const Experience = () => {
           height: 500,
           borderRadius: 20,
           bgcolor: '#FAF5EA',
-          marginTop: 10,
+          mt: 2,
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       />
-      <motion.div style={{ marginTop: 50 }} variants={textVariant()}>
-        <h1 className={styles.sectionHeadTextAbout} style={{ fontSize: 20, textAlign: 'left', fontFamily: 'Tomato Grotesk Regular' }}>
+      <motion.div className="mt-10" variants={textVariant()}>
+        <h1 className="font-tomato-grotesk-regular text-[20px] sm:text-[25px] text-left">
           Donika Vata <br />
         </h1>
       </motion.div>
-      <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'left', textAlign: 'start', fontFamily: 'Tomato Grotesk Regular' }}>
+      <div className="text-left font-tomato-grotesk-regular">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          style={{ display: 'flex', color: 'black', fontSize: 20, fontFamily: 'Tomato Grotesk Regular', marginTop: 20, flexDirection: 'column' }}
+          className="text-black text-[20px] sm:text-[25px] mt-5 flex flex-col"
         >
           Co-Founder
-          <span style={{ fontFamily: 'Tomato Grotesk Thin' }}>
+          <span className="font-tomato-grotesk-thin">
             MD, Chief medical officer
           </span>
-          <span style={{ fontFamily: 'Tomato Grotesk Thin', color: 'grey', fontSize: 15 }}>
+          <span className="font-tomato-grotesk-thin text-gray-500 text-[15px]">
             Talk to donika
           </span>
         </motion.p>
       </div>
-    </>
+    </div>
   );
 };
 

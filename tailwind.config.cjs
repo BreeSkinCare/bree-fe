@@ -18,6 +18,10 @@ module.exports = {
       },
       screens: {
         xs: "450px",
+        sm: "640px", // Small screens like tablets
+        md: "768px", // Medium screens like small laptops
+        lg: "1024px", // Large screens like desktops
+        xl: "1280px", // Extra large screens
       },
       backgroundImage: {
         "hero-pattern": "url('/src/assets/herobg.png')",
@@ -26,3 +30,4 @@ module.exports = {
   },
   plugins: [],
 };
+

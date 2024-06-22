@@ -43,22 +43,22 @@ const Navbar = () => {
         scrolled ? "bg-white bg-opacity-50" : "bg-transparent"
       }`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
-          to='/'
-          className='flex items-center gap-2'
+          to="/"
+          className="flex items-center gap-2"
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-11 h-11 object-contain' />
-          <p className='text-black text-[18px] font-bold cursor-pointer flex '>
+          <img src={logo} alt="logo" className="w-11 h-11 object-contain" />
+          <p className="text-black text-[18px] font-bold cursor-pointer flex ">
             BREE &nbsp;
           </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -70,7 +70,7 @@ const Navbar = () => {
               {nav.id === "meet-bree" ? (
                 <Button
                   variant="contained"
-                  style={{ backgroundColor: 'black' }}
+                  style={{ backgroundColor: "black" }}
                 >
                   {nav.title}
                 </Button>
@@ -81,20 +81,20 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
+            alt="menu"
+            className="w-[28px] h-[28px] object-contain"
             onClick={() => setToggle(!toggle)}
           />
 
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            } p-6 bg-[#FFFEF2] absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl shadow-lg`}
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
+            <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
@@ -110,7 +110,7 @@ const Navbar = () => {
                     <Button
                       variant="outlined"
                       fullWidth
-                      sx={{ color: '#000000', backgroundColor: '#black' }}
+                      sx={{ color: "#000000", backgroundColor: "#FFF5F5" }}
                     >
                       {nav.title}
                     </Button>

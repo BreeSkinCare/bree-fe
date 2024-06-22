@@ -7,19 +7,19 @@ import '../index.css';
 
 const Story = () => {
   return (
-    <div style={{ backgroundColor: '#FFFEF2', width: '100%', padding: '40px 20px', boxSizing: 'border-box' }}>
+    <div className="w-full overflow-hidden" style={{ backgroundColor: '#FFFEF2', padding: '40px 20px', boxSizing: 'border-box' }}>
       <motion.div variants={textVariant()}>
-        <h1 className={styles.sectionHeadTextAbout} style={{ fontSize: 25, textAlign: 'left', fontFamily: 'Tomato Grotesk Regular' }}>
+        <h1 className={`${styles.sectionHeadTextAbout} text-[25px] sm:text-[35px] text-left font-tomato-grotesk-regular`}>
           Our story <br />
         </h1>
-        <h1 className={styles.sectionHeadTextAbout} style={{ fontSize: 35, textAlign: 'left', fontFamily: 'Tomato Grotesk Bold' }}>
+        <h1 className={`${styles.sectionHeadTextAbout} text-[35px] sm:text-[45px] text-left font-tomato-grotesk-bold`}>
           <strong>We think outside the Mainstream</strong>
         </h1>
       </motion.div>
-      <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'left', textAlign: 'start', fontFamily: 'Raleway light', maxWidth: '800px' }}>
+      <div className="text-left max-w-[800px]">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          style={{ color: '#868686', fontSize: 20, fontFamily: 'Tomato Grotesk Regular', marginTop: 20 }}
+          className="text-[#868686] text-[20px] font-tomato-grotesk-regular mt-5"
         >
           We strive to transform the paradigm by setting unparalleled standards and technology that connects 
           each individual to their highest, most trusted self. By harnessing the power of singular data, we aim 

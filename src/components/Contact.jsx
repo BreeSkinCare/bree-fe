@@ -6,7 +6,7 @@ import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-import photoPhone from '../../public/images/phones.png'
+import photoPhone from '../../public/images/phones.png';
 
 const Contact = () => {
   const formRef = useRef();
@@ -66,7 +66,7 @@ const Contact = () => {
   };
 
   return (
-    <div className={`xl:mt-12 flex flex-col gap-10 overflow-hidden`} style={{ padding: '20px' }}>
+    <div className={`xl:mt-12 flex flex-col gap-10 overflow-hidden px-5`}>
       <motion.div
         variants={slideIn("left", "tween", 0.1, 1)}
         className='flex-[1.75] p-8 rounded-2xl'
@@ -127,20 +127,13 @@ const Contact = () => {
         </form>
       </motion.div>
       <div
-        style={{
-          width: '100%',
-          backgroundColor: '#FCEFCD',
-          padding: '40px 20px',
-          marginTop: '40px',
-          borderRadius: '20px',
-          textAlign: 'center',
-        }}
+        className="w-full bg-[#FCEFCD] p-10 mt-10 rounded-2xl text-center"
       >
-        <h2 style={{ fontFamily: 'Tomato Grotesk', fontSize: '35px', color: 'black',marginTop:20 }}>
+        <h2 className="font-tomato-grotesk text-[25px] sm:text-[35px] text-black mt-5">
           Chat With Me In Real Time On
         </h2>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-          <img src={photoPhone} alt='Instagram' style={{ width: '1000px', height: '800px' }} />
+        <div className="flex justify-center gap-5 mt-5">
+          <img src={photoPhone} alt='Instagram' className="w-full h-auto max-w-[600px] sm:max-w-[1200px]" />
         </div>
       </div>
     </div>
