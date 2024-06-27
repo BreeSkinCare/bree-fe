@@ -125,7 +125,7 @@ const Experience = () => {
       </div>
 
       <motion.div className="mt-20" variants={textVariant()}>
-        <h1 className="font-tomato-grotesk-regular text-[25px] sm:text-[35px] text-left">
+        <h1 style={{color:'black'}}className="font-tomato-grotesk-regular text-[25px] sm:text-[35px] text-left">
           Watch <br />
         </h1>
       </motion.div>

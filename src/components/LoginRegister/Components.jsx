@@ -13,6 +13,10 @@ export const Container = styled.div`
   min-height: 700px;
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    width: 90%;
+    min-height: auto;
+  }
 `;
 
 export const SignUpContainer = styled.div`
@@ -31,6 +35,11 @@ export const SignUpContainer = styled.div`
     opacity: 1;
     z-index: 5;
   `}
+  @media (max-width: 768px) {
+    width: 100%;
+    left: 0;
+    transform: ${({ show }) => (show ? 'translateY(0)' : 'translateY(-100%)')};
+  }
 `;
 
 export const SignInContainer = styled.div`
@@ -45,6 +54,11 @@ export const SignInContainer = styled.div`
     !show &&
     `transform: translateX(100%);`
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    left: 0;
+    transform: ${({ show }) => (!show ? 'translateY(0)' : 'translateY(100%)')};
+  }
 `;
 
 export const Form = styled.form`
@@ -56,12 +70,18 @@ export const Form = styled.form`
   padding: 0 50px;
   height: 100%;
   text-align: center;
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
 export const Title = styled.h1`
   font-weight: bold;
-  margin-left:10px;
+  margin-left: 10px;
   margin: 0;
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 export const Input = styled.input`
@@ -88,6 +108,10 @@ export const Button = styled.button`
   }
   &:focus {
     outline: none;
+  }
+  @media (max-width: 768px) {
+    padding: 10px 30px;
+    font-size: 10px;
   }
 `;
 
@@ -129,6 +153,10 @@ export const GhostButton = styled.button`
     background-color: #ffffff;
     color: #d9c8ba;
   }
+  @media (max-width: 768px) {
+    padding: 10px 30px;
+    font-size: 10px;
+  }
 `;
 
 export const Anchor = styled.a`
@@ -151,6 +179,12 @@ export const OverlayContainer = styled.div`
     !show &&
     `transform: translateX(-100%);`
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    left: 0;
+    top: 50%;
+    transform: ${({ show }) => (!show ? 'translateY(-100%)' : 'translateY(0)')};
+  }
 `;
 
 export const Overlay = styled.div`
@@ -169,6 +203,13 @@ export const Overlay = styled.div`
     !show &&
     `transform: translateX(50%);`
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 200%;
+    left: 0;
+    top: -100%;
+    transform: ${({ show }) => (!show ? 'translateY(100%)' : 'translateY(0)')};
+  }
 `;
 
 export const OverlayPanel = styled.div`
@@ -184,6 +225,12 @@ export const OverlayPanel = styled.div`
   width: 50%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 50%;
+    top: 50%;
+    transform: translateY(0);
+  }
 `;
 
 export const LeftOverlayPanel = styled(OverlayPanel)`
@@ -191,6 +238,9 @@ export const LeftOverlayPanel = styled(OverlayPanel)`
   ${({ show }) =>
     !show &&
     `transform: translateX(0);`
+  }
+  @media (max-width: 768px) {
+    transform: ${({ show }) => (!show ? 'translateY(0)' : 'translateY(-50%)')};
   }
 `;
 
@@ -201,6 +251,9 @@ export const RightOverlayPanel = styled(OverlayPanel)`
     !show &&
     `transform: translateX(20%);`
   }
+  @media (max-width: 768px) {
+    transform: ${({ show }) => (!show ? 'translateY(0)' : 'translateY(50%)')};
+  }
 `;
 
 export const Paragraph = styled.p`
@@ -209,6 +262,9 @@ export const Paragraph = styled.p`
   line-height: 20px;
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 export const Divider = styled.div`
@@ -243,8 +299,6 @@ export const ErrorMessage = styled.p`
   font-size: 0.9rem;
   margin-top: 10px;
 `;
-
-
 
 export const ChangePasswordContainer = styled.div`
   position: absolute;

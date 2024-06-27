@@ -49,7 +49,7 @@ const MeetBree = (props) => {
       {currentStep === 1 ? (
         // Initial landing screen
         <div className="landing-screen">
-          <div className="landing-content" style={{ textAlign: 'center',marginTop:100 }}>
+          <div className="landing-content" >
             <img src={logoBree} alt="Bree Logo" style={{ width: '700px'}} /> 
             <p style={{color:'black',fontFamily:'Tomato Grotesk',marginBottom:50}}>Your Personal Skin Assistant</p>
             <Button variant="contained" onClick={handleNext} style={{width:200,height:50,borderRadius:50,background:'#F5EADC',color:'black',fontFamily:'Tomato Grotesk'}}>
@@ -61,7 +61,7 @@ const MeetBree = (props) => {
         // Chat interface with sidebar
         <div className="meet-bree-container">
           <div className="sidebar--container">
-            <div className="sidebar" style={{alignContent:'center',alignItems:'center',flexDirection:'column',justifyContent:'center',display:'flex'}}>
+            <div className="sidebar">
               {/* <img src={logoBree} alt="Bree Logo" className="usi-img" /> */}
               <p style={{ fontFamily: 'Tomato Grotesk', fontSize: '15px', textAlign: 'start', marginTop: '20px',color:'black',justifyContent:'left' }}>
                 Enhance Your Bree Experience By<br></br> Creating An Account.

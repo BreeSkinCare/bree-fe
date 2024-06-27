@@ -152,7 +152,7 @@ const LoginRegister = () => {
         <>
           <Components.SignUpContainer show={!signIn}>
             <Components.Form onSubmit={formikRegister.handleSubmit}>
-              <Typography variant="h4" component="h1" sx={{ fontFamily: 'Tomato Grotesk', fontSize: 22, marginBottom: 5,color:'black' }}>Create Account</Typography>
+              <Typography variant="h4" component="h1" sx={{ fontFamily: 'Tomato Grotesk', fontSize: 22, marginBottom: 5, color: 'black' }}>Create Account</Typography>
               <TextField
                 size='small'
                 name='firstname'
@@ -220,7 +220,7 @@ const LoginRegister = () => {
                 {loading ? <CircularProgress size={24} /> : 'Sign Up'}
               </Button>
               {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
-              <Divider style={{ width: '100%', margin: '20px 0', marginBottom: 30 ,color:'black'}}>or use your social account</Divider>
+              <Divider style={{ width: '100%', margin: '20px 0', marginBottom: 30, color: 'black' }}>or use your social account</Divider>
               <Button
                 fullWidth
                 variant="contained"
@@ -246,7 +246,7 @@ const LoginRegister = () => {
 
           <Components.SignInContainer show={signIn}>
             <Components.Form onSubmit={formikLogin.handleSubmit}>
-              <Typography variant="h4" component="h1" sx={{ fontFamily: 'Tomato Grotesk' ,color:'black'}}>Sign In</Typography>
+              <Typography variant="h4" component="h1" sx={{ fontFamily: 'Tomato Grotesk', color: 'black' }}>Sign In</Typography>
               <TextField
                 name='email'
                 type='email'
@@ -298,7 +298,7 @@ const LoginRegister = () => {
                 {loading ? <CircularProgress size={24} sx={{ fontFamily: 'Tomato Grotesk' }} /> : 'Sign In'}
               </Button>
               {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
-              <Divider style={{ width: '100%', margin: '55px 0', fontSize: 15, color:'black'}}>or use your social account</Divider>
+              <Divider style={{ width: '100%', margin: '55px 0', fontSize: 15, color: 'black' }}>or use your social account</Divider>
               <Button
                 fullWidth
                 variant="contained"
@@ -325,8 +325,8 @@ const LoginRegister = () => {
           <Components.OverlayContainer show={signIn}>
             <Components.Overlay show={signIn}>
               <Components.LeftOverlayPanel show={signIn}>
-                <Components.Title style={{ marginRight: 50,fontFamily:'Tomato Grotesk' }}>Welcome Back!</Components.Title>
-                <Components.Paragraph style={{ marginRight: 50,fontFamily:'Tomato Grotesk' }}>
+                <Components.Title style={{ marginRight: 50, fontFamily: 'Tomato Grotesk' }}>Welcome Back!</Components.Title>
+                <Components.Paragraph style={{ marginRight: 50, fontFamily: 'Tomato Grotesk' }}>
                   Please login with your personal info
                 </Components.Paragraph>
                 <Components.GhostButton onClick={toggleSignIn} style={{ marginRight: 50 }}>
@@ -334,8 +334,8 @@ const LoginRegister = () => {
                 </Components.GhostButton>
               </Components.LeftOverlayPanel>
               <Components.RightOverlayPanel show={!signIn}>
-                <Components.Title style={{ marginRight: 150,fontFamily:'Tomato Grotesk' }}>Hello, Friend!</Components.Title>
-                <Components.Paragraph style={{ marginRight: 150,fontFamily:'Tomato Grotesk' }}>
+                <Components.Title style={{ marginRight: 150, fontFamily: 'Tomato Grotesk' }}>Hello, Friend!</Components.Title>
+                <Components.Paragraph style={{ marginRight: 150, fontFamily: 'Tomato Grotesk' }}>
                   Start journey with us
                 </Components.Paragraph>
                 <Components.GhostButton onClick={toggleSignIn} style={{ marginRight: 150 }}>

@@ -31,7 +31,7 @@ const Input = (props) => {
     };
 
     return (
-        <div className="bottom--container" style={{marginTop:70,width:1000,marginLeft:200}}>
+        <div className="bottom--container" >
             <div className="input--container">
                 <img className="input--B--image" src="/images/B.png" alt="B-png"/>
                 <input
