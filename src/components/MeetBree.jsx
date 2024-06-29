@@ -13,6 +13,9 @@ const MeetBree = (props) => {
   const [open, setOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(true); // New state for sign-in/sign-up toggle
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // New state for mobile view
+  const [showForm, setShowForm] = useState(null); // State to show login/register form
 
   const addMessageToConversation = (message) => {
     if (memory != null) {
@@ -24,6 +27,7 @@ const MeetBree = (props) => {
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
+    document.querySelector('.meet-bree-container').classList.toggle('sidebar-open', !isOpen);
   };
 
   const launch = async () => {
@@ -43,14 +47,35 @@ const MeetBree = (props) => {
 
   useEffect(() => {
     launch();
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleNext = () => setCurrentStep(2);
 
+  const toggleSignIn = (signInState) => {
+    setShowSignIn(signInState);
+  };
+
+  const showLoginForm = () => {
+    setShowForm('login');
+    setIsOpen(false);
+  };
+
+  const showSignUpForm = () => {
+    setShowForm('signup');
+    setIsOpen(false);
+  };
+
+  const closeForm = () => {
+    setShowForm(null);
+  };
+
   return (
-    <div>
+    <div className={`meet-bree-container ${isOpen ? "sidebar-open" : ""}`}>
       {currentStep === 1 ? (
         <div className="landing-screen">
           <div className="landing-content">
@@ -76,12 +101,25 @@ const MeetBree = (props) => {
                 <br /><br /><strong>Plus, It's All Completely Free!</strong>
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '100px' }}>
-                <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', marginBottom: '10px', width: 200, backgroundColor: '#EDE6E3', color: 'black', fontWeight: 'bold', borderRadius: 20 }} onClick={handleOpen}>
-                  Sign Up
-                </Button>
-                <Button variant="contained" color="primary" style={{ fontFamily: 'Tomato Grotesk', fontWeight: 'bold', marginBottom: '10px', width: 200, backgroundColor: '#ffff', color: 'black', borderRadius: 20 }} onClick={handleOpen}>
-                  Log In
-                </Button>
+                {isMobile ? (
+                  <>
+                    <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', marginBottom: '10px', width: 200, backgroundColor: '#EDE6E3', color: 'black', fontWeight: 'bold', borderRadius: 20 }} onClick={showSignUpForm}>
+                      Sign Up
+                    </Button>
+                    <Button variant="contained" color="primary" style={{ fontFamily: 'Tomato Grotesk', fontWeight: 'bold', marginBottom: '10px', width: 200, backgroundColor: '#ffff', color: 'black', borderRadius: 20 }} onClick={showLoginForm}>
+                      Log In
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', marginBottom: '10px', width: 200, backgroundColor: '#EDE6E3', color: 'black', fontWeight: 'bold', borderRadius: 20 }} onClick={() => { handleOpen(); toggleSignIn(false); }}>
+                      Sign Up
+                    </Button>
+                    <Button variant="contained" color="primary" style={{ fontFamily: 'Tomato Grotesk', fontWeight: 'bold', marginBottom: '10px', width: 200, backgroundColor: '#ffff', color: 'black', borderRadius: 20 }} onClick={() => { handleOpen(); toggleSignIn(true); }}>
+                      Log In
+                    </Button>
+                  </>
+                )}
                 <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', width: 200, backgroundColor: '#ffff', color: '#FFDCBF', borderRadius: 20 }}>
                   Not Now
                 </Button>
@@ -95,13 +133,19 @@ const MeetBree = (props) => {
         </div>
       )}
 
+      {isMobile && showForm && (
+        <div className="mobile-form">
+          <LoginRegister mobileMode={true} showSignIn={showForm === 'login'} closeForm={closeForm} />
+        </div>
+      )}
+
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <LoginRegister />
+        <LoginRegister toggleSignIn={toggleSignIn} showForm={showForm} />
       </Modal>
     </div>
   );

@@ -20,7 +20,7 @@ export const Container = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     height: 80%;
-    border-radius: px;
+    border-radius: 0px;
   }
 `;
 
@@ -306,7 +306,6 @@ export const ErrorMessage = styled.p`
   font-size: 0.9rem;
   margin-top: 10px;
 `;
-
 
 export const ChangePasswordContainer = styled.div`
   position: absolute;

@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { registerSchema, loginSchema, changePasswordSchema } from './Validation';
 
-const LoginRegister = () => {
-  const [signIn, setSignIn] = useState(true);
+const LoginRegister = ({ toggleSignIn, mobileMode, showSignIn, closeForm }) => {
+  const [signIn, setSignIn] = useState(showSignIn);
   const [showChangePassword, setShowChangePassword] = useState(false);
   const { handleRegister, handleLogin, handleChangePassword, loading, error, setError } = useAuth();
   const navigate = useNavigate();
@@ -25,6 +25,7 @@ const LoginRegister = () => {
       const success = await handleRegister(values);
       if (success) {
         navigate('/');
+        if (mobileMode) closeForm();
       }
     },
   });
@@ -39,6 +40,7 @@ const LoginRegister = () => {
       const success = await handleLogin(values);
       if (success) {
         navigate('/');
+        if (mobileMode) closeForm();
       }
     },
   });
@@ -70,8 +72,9 @@ const LoginRegister = () => {
     setError(null);
   }, [signIn, setError]);
 
-  const toggleSignIn = () => {
-    setSignIn((prev) => !prev);
+  const toggleSignInState = () => {
+    setSignIn(!signIn);
+    if (toggleSignIn) toggleSignIn(!signIn);
   };
 
   return (
@@ -149,7 +152,7 @@ const LoginRegister = () => {
         </Components.ChangePasswordContainer>
       ) : (
         <>
-          <Components.SignUpContainer show={!signIn}>
+          <Components.SignUpContainer show={!signIn || (mobileMode && showSignIn === 'signup')}>
             <Components.Form onSubmit={formikRegister.handleSubmit}>
               <Typography variant="h4" component="h1" sx={{ fontFamily: 'Tomato Grotesk', fontSize: 22, marginBottom: 5, color: 'black' }}>Create Account</Typography>
               <TextField
@@ -240,10 +243,26 @@ const LoginRegister = () => {
               >
                 Continue with Google
               </Button>
+              <Button
+                variant="contained"
+                onClick={toggleSignInState}
+                sx={{
+                  marginTop: 2,
+                  fontFamily: 'Tomato Grotesk',
+                  backgroundColor: '#fff',
+                  color: '#000',
+                  '&:hover': {
+                    backgroundColor: '#f5f5f5',
+                  },
+                }}
+                fullWidth
+              >
+                Sign In
+              </Button>
             </Components.Form>
           </Components.SignUpContainer>
 
-          <Components.SignInContainer show={signIn}>
+          <Components.SignInContainer show={signIn || (mobileMode && showSignIn === 'login')}>
             <Components.Form onSubmit={formikLogin.handleSubmit}>
               <Typography variant="h4" component="h1" sx={{ fontFamily: 'Tomato Grotesk', color: 'black' }}>Sign In</Typography>
               <TextField
@@ -318,8 +337,49 @@ const LoginRegister = () => {
               >
                 Continue with Google
               </Button>
+              <Button
+                variant="contained"
+                onClick={toggleSignInState}
+                sx={{
+                  marginTop: 2,
+                  fontFamily: 'Tomato Grotesk',
+                  backgroundColor: '#fff',
+                  color: '#000',
+                  '&:hover': {
+                    backgroundColor: '#f5f5f5',
+                  },
+                }}
+                fullWidth
+              >
+                Create Account
+              </Button>
             </Components.Form>
           </Components.SignInContainer>
+
+          {!mobileMode && (
+            <Components.OverlayContainer show={signIn}>
+              <Components.Overlay show={signIn}>
+                <Components.LeftOverlayPanel show={signIn}>
+                  <Components.Title style={{ marginRight: 50, fontFamily: 'Tomato Grotesk' }}>Welcome Back!</Components.Title>
+                  <Components.Paragraph style={{ marginRight: 50, fontFamily: 'Tomato Grotesk' }}>
+                    Please login with your personal info
+                  </Components.Paragraph>
+                  <Components.GhostButton onClick={toggleSignInState} style={{ marginRight: 50 }}>
+                    Sign In
+                  </Components.GhostButton>
+                </Components.LeftOverlayPanel>
+                <Components.RightOverlayPanel show={!signIn}>
+                  <Components.Title style={{ marginRight: 150, fontFamily: 'Tomato Grotesk' }}>Hello, Friend!</Components.Title>
+                  <Components.Paragraph style={{ marginRight: 150, fontFamily: 'Tomato Grotesk' }}>
+                    Start journey with us
+                  </Components.Paragraph>
+                  <Components.GhostButton onClick={toggleSignInState} style={{ marginRight: 150 }}>
+                    Sign Up
+                  </Components.GhostButton>
+                </Components.RightOverlayPanel>
+              </Components.Overlay>
+            </Components.OverlayContainer>
+          )}
         </>
       )}
     </Components.Container>
