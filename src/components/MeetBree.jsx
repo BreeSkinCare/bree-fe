@@ -11,7 +11,8 @@ import { logoBree } from "../assets";
 const MeetBree = (props) => {
   const [memory, setMemory] = useState();
   const [open, setOpen] = useState(false);
-  const [currentStep, setCurrentStep] = useState(1); // New state to track the current step
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
 
   const addMessageToConversation = (message) => {
     if (memory != null) {
@@ -19,6 +20,10 @@ const MeetBree = (props) => {
     } else {
       setMemory(message);
     }
+  };
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
   };
 
   const launch = async () => {
@@ -42,40 +47,42 @@ const MeetBree = (props) => {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleNext = () => setCurrentStep(2); // Move to the next step
+  const handleNext = () => setCurrentStep(2);
 
   return (
     <div>
       {currentStep === 1 ? (
-        // Initial landing screen
         <div className="landing-screen">
-          <div className="landing-content" >
-            <img src={logoBree} alt="Bree Logo" style={{ width: '700px'}} /> 
-            <p style={{color:'black',fontFamily:'Tomato Grotesk',marginBottom:50}}>Your Personal Skin Assistant</p>
-            <Button variant="contained" onClick={handleNext} style={{width:200,height:50,borderRadius:50,background:'#F5EADC',color:'black',fontFamily:'Tomato Grotesk'}}>
+          <div className="landing-content">
+            <img src={logoBree} alt="Bree Logo" style={{ width: '700px' }} />
+            <p style={{ color: 'black', fontFamily: 'Tomato Grotesk', marginBottom: 50 }}>Your Personal Skin Assistant</p>
+            <Button variant="contained" onClick={handleNext} style={{ width: 200, height: 50, borderRadius: 50, background: '#F5EADC', color: 'black', fontFamily: 'Tomato Grotesk' }}>
               Next
             </Button>
           </div>
         </div>
       ) : (
-        // Chat interface with sidebar
         <div className="meet-bree-container">
-          <div className="sidebar--container">
+          <Button className="menu-button" onClick={toggleSidebar} style={{ position: 'fixed', top: '20px', left: '20px', zIndex: 1001 }}>
+            {isOpen ? "Close" : "Menu"}
+          </Button>
+          <div className={`sidebar--container ${isOpen ? "open" : ""}`}>
             <div className="sidebar">
-              {/* <img src={logoBree} alt="Bree Logo" className="usi-img" /> */}
-              <p style={{ fontFamily: 'Tomato Grotesk', fontSize: '15px', textAlign: 'start', marginTop: '20px',color:'black',justifyContent:'left' }}>
-                Enhance Your Bree Experience By<br></br> Creating An Account.
-                Enjoy Seamless<br></br> Integration Across All Our Channels,<br></br> With Your Chat History Saved And<br></br> Accessible Anytime, Anywhere.
-                <br></br><br></br><strong>Plus, It's All Completely Free!</strong>
+              <img className="usi-img" src="/images/usi.png" alt="usi-img" />
+              <img className="usi" src="/images/usi-text.png" alt="usi-img" />
+              <p style={{ fontFamily: 'Tomato Grotesk', fontSize: '15px', textAlign: 'start', marginTop: '20px', color: 'black', justifyContent: 'left' }}>
+                Enhance Your Bree Experience By<br /> Creating An Account.
+                Enjoy Seamless<br /> Integration Across All Our Channels,<br /> With Your Chat History Saved And<br /> Accessible Anytime, Anywhere.
+                <br /><br /><strong>Plus, It's All Completely Free!</strong>
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '100px' ,}}>
-                <Button variant="contained" onClick={handleOpen} style={{fontFamily:'Tomato Grotesk', marginBottom: '10px',width:200,backgroundColor:'#EDE6E3',color:'black',fontWeight:'bold',borderRadius:20 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '100px' }}>
+                <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', marginBottom: '10px', width: 200, backgroundColor: '#EDE6E3', color: 'black', fontWeight: 'bold', borderRadius: 20 }} onClick={handleOpen}>
                   Sign Up
                 </Button>
-                <Button variant="contained" color="primary" onClick={handleOpen} style={{fontFamily:'Tomato Grotesk',fontWeight:'bold', marginBottom: '10px',width:200,backgroundColor:'#ffff',color:'black',borderRadius:20 }}>
+                <Button variant="contained" color="primary" style={{ fontFamily: 'Tomato Grotesk', fontWeight: 'bold', marginBottom: '10px', width: 200, backgroundColor: '#ffff', color: 'black', borderRadius: 20 }} onClick={handleOpen}>
                   Log In
                 </Button>
-                <Button variant="contained" onClick={handleNext} style={{fontFamily:'Tomato Grotesk',width:200, backgroundColor:'#ffff',color:'#FFDCBF',borderRadius:20}} >
+                <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', width: 200, backgroundColor: '#ffff', color: '#FFDCBF', borderRadius: 20 }}>
                   Not Now
                 </Button>
               </div>

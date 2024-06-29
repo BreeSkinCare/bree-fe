@@ -66,7 +66,6 @@ const LoginRegister = () => {
     window.location.href = 'http://localhost:8080/oauth2/authorization/facebook';
   };
 
-  // Clear error on switching forms
   useEffect(() => {
     setError(null);
   }, [signIn, setError]);
@@ -321,29 +320,6 @@ const LoginRegister = () => {
               </Button>
             </Components.Form>
           </Components.SignInContainer>
-
-          <Components.OverlayContainer show={signIn}>
-            <Components.Overlay show={signIn}>
-              <Components.LeftOverlayPanel show={signIn}>
-                <Components.Title style={{ marginRight: 50, fontFamily: 'Tomato Grotesk' }}>Welcome Back!</Components.Title>
-                <Components.Paragraph style={{ marginRight: 50, fontFamily: 'Tomato Grotesk' }}>
-                  Please login with your personal info
-                </Components.Paragraph>
-                <Components.GhostButton onClick={toggleSignIn} style={{ marginRight: 50 }}>
-                  Sign In
-                </Components.GhostButton>
-              </Components.LeftOverlayPanel>
-              <Components.RightOverlayPanel show={!signIn}>
-                <Components.Title style={{ marginRight: 150, fontFamily: 'Tomato Grotesk' }}>Hello, Friend!</Components.Title>
-                <Components.Paragraph style={{ marginRight: 150, fontFamily: 'Tomato Grotesk' }}>
-                  Start journey with us
-                </Components.Paragraph>
-                <Components.GhostButton onClick={toggleSignIn} style={{ marginRight: 150 }}>
-                  Sign Up
-                </Components.GhostButton>
-              </Components.RightOverlayPanel>
-            </Components.Overlay>
-          </Components.OverlayContainer>
         </>
       )}
     </Components.Container>

@@ -16,6 +16,11 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     width: 90%;
     min-height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    border-radius: px;
   }
 `;
 
@@ -57,7 +62,9 @@ export const SignInContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     left: 0;
-    transform: ${({ show }) => (!show ? 'translateY(0)' : 'translateY(100%)')};
+    transform: ${({ show }) => (show ? 'translateY(0)' : 'translateY(100%)')};
+    opacity: ${({ show }) => (show ? '1' : '0')};
+    z-index: ${({ show }) => (show ? '5' : '1')};
   }
 `;
 
@@ -77,7 +84,6 @@ export const Form = styled.form`
 
 export const Title = styled.h1`
   font-weight: bold;
-  margin-left: 10px;
   margin: 0;
   @media (max-width: 768px) {
     font-size: 24px;
@@ -182,7 +188,8 @@ export const OverlayContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     left: 0;
-    top: 50%;
+    top: 0;
+    height: 100%; /* Added to ensure full height on mobile */
     transform: ${({ show }) => (!show ? 'translateY(-100%)' : 'translateY(0)')};
   }
 `;
@@ -205,9 +212,9 @@ export const Overlay = styled.div`
   }
   @media (max-width: 768px) {
     width: 100%;
-    height: 200%;
+    height: 100%; /* Changed from 200% to 100% to ensure correct height */
     left: 0;
-    top: -100%;
+    top: 0; /* Adjusted from top: -100% to top: 0 */
     transform: ${({ show }) => (!show ? 'translateY(100%)' : 'translateY(0)')};
   }
 `;
@@ -299,6 +306,7 @@ export const ErrorMessage = styled.p`
   font-size: 0.9rem;
   margin-top: 10px;
 `;
+
 
 export const ChangePasswordContainer = styled.div`
   position: absolute;
