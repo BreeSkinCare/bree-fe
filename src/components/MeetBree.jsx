@@ -5,8 +5,11 @@ import '../MeetBree.css';
 import Input from "../components/chat/ChatInput";
 import { fetchData, getMemoryData } from '../services/api';
 import LoginRegister from "./LoginRegister/LoginRegister";
-import { Modal, Button } from '@mui/material';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
 import { logoBree } from "../assets";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const MeetBree = (props) => {
   const [memory, setMemory] = useState();
@@ -16,6 +19,7 @@ const MeetBree = (props) => {
   const [showSignIn, setShowSignIn] = useState(true); // New state for sign-in/sign-up toggle
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // New state for mobile view
   const [showForm, setShowForm] = useState(null); // State to show login/register form
+  const [showMobileModal, setShowMobileModal] = useState(false);
 
   const addMessageToConversation = (message) => {
     if (memory != null) {
@@ -63,15 +67,18 @@ const MeetBree = (props) => {
   const showLoginForm = () => {
     setShowForm('login');
     setIsOpen(false);
+    if (isMobile) setShowMobileModal(true); 
   };
 
   const showSignUpForm = () => {
     setShowForm('signup');
     setIsOpen(false);
+    if (isMobile) setShowMobileModal(true); 
   };
 
   const closeForm = () => {
     setShowForm(null);
+    setShowMobileModal(false); 
   };
 
   return (
@@ -88,9 +95,12 @@ const MeetBree = (props) => {
         </div>
       ) : (
         <div className="meet-bree-container">
-          <Button className="menu-button" onClick={toggleSidebar} style={{ position: 'fixed', top: '20px', left: '20px', zIndex: 1001 }}>
-            {isOpen ? "Close" : "Menu"}
-          </Button>
+          <FontAwesomeIcon
+            icon={isOpen ? faTimes : faBars}
+            className="menu-button"
+            onClick={toggleSidebar}
+            style={{ position: 'fixed', top: '20px', left: '20px', zIndex: 1001, cursor: 'pointer' }}
+          />
           <div className={`sidebar--container ${isOpen ? "open" : ""}`}>
             <div className="sidebar">
               <img className="usi-img" src="/images/usi.png" alt="usi-img" />
@@ -134,9 +144,17 @@ const MeetBree = (props) => {
       )}
 
       {isMobile && showForm && (
+          <Modal
+          open={showMobileModal}
+          onClose={closeForm}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+    
         <div className="mobile-form">
           <LoginRegister mobileMode={true} showSignIn={showForm === 'login'} closeForm={closeForm} />
         </div>
+        </Modal>
       )}
 
       <Modal

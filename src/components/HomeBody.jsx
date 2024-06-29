@@ -1,34 +1,41 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Box } from "@mui/material";
 import { styles } from "../styles";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
 import videoAnimation from '../animations/etalo-video.mp4';
+import '../hero.css';
 
 const HomeBody = () => {
   const videoRef = useRef(null);
+  const [isFixed, setIsFixed] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
-    const handleIntersection = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          videoRef.current.play();
-        } else {
-          videoRef.current.pause();
-        }
-      });
+    const handleScroll = () => {
+      const videoCard = videoRef.current;
+      const rect = videoCard.getBoundingClientRect();
+      
+      // Check if the video card is in view and should be fixed
+      if (rect.top <= 10 && rect.bottom >= 10) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+      
+      // Check if the video card is in view and should be sticky
+      if (window.scrollY >= videoCard.offsetTop - 10) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
     };
 
-    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -71,16 +78,17 @@ const HomeBody = () => {
           <strong>A Personal Skin Assistant for Everyone, and Completely Free.</strong> <span className="text-[#756E6E]">Bree is redefining new Pathways to understand and care about the skin, empowering self-knowledge through actionable insights, based on singular data that reflects skin identity.</span>
         </motion.p>
       </div>
-      <div className="flex justify-center items-center mt-8 sm:mt-12">
-        <video
-          ref={videoRef}
-          src={videoAnimation}
-          loop
-          className="w-full sm:w-[800px] h-auto"
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-          controlsList="nodownload"
-          onContextMenu={(e) => e.preventDefault()}
-        />
+
+      <div className="video-wrapper">
+        <div>
+            <video
+              src={videoAnimation}
+              loop
+              className="video"
+              controlsList="nodownload"
+              onContextMenu={(e) => e.preventDefault()}
+            />
+          </div>
       </div>
     </>
   );

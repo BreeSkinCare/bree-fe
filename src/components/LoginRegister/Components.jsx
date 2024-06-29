@@ -38,11 +38,12 @@ export const SignUpContainer = styled.div`
     `
     transform: translateX(100%);
     opacity: 1;
-    z-index: 5;
   `}
   @media (max-width: 768px) {
     width: 100%;
     left: 0;
+    padding: 20px 25px;
+    background-color:'#ffff#';
     transform: ${({ show }) => (show ? 'translateY(0)' : 'translateY(-100%)')};
   }
 `;
@@ -62,9 +63,8 @@ export const SignInContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     left: 0;
+    padding: 20px 25px;
     transform: ${({ show }) => (show ? 'translateY(0)' : 'translateY(100%)')};
-    opacity: ${({ show }) => (show ? '1' : '0')};
-    z-index: ${({ show }) => (show ? '5' : '1')};
   }
 `;
 
