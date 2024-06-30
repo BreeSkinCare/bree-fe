@@ -40,7 +40,7 @@ const Navbar = () => {
   return (
     <nav
       className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 transition-colors duration-500 ${
-        scrolled ? "bg-white bg-opacity-50" : "bg-transparent"
+        scrolled ? "bg-black bg-opacity-10" : "bg-white bg-opacity-50"
       }`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
@@ -110,7 +110,7 @@ const Navbar = () => {
                     <Button
                       variant="outlined"
                       fullWidth
-                      sx={{ color: "#000000", backgroundColor: "#FFF5F5" }}
+                      sx={{ color: "#ffff",borderColor:'#ffff', backgroundColor: "#DED3C5" }}
                     >
                       {nav.title}
                     </Button>

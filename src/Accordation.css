@@ -3,6 +3,9 @@
     width: 100%;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
+    
+
+
   }
   
   .accordion-item {
@@ -17,12 +20,12 @@
     padding: 1em;
     cursor: pointer;
     font-size: 1.5em;
-    background-color: #F9F6F1;
+    background-color: #F8EFCD;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .accordion-header:hover {
-    background-color: #F4F1E9;
+    background-color: #E8E1C7;
     color: #000;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
@@ -65,12 +68,12 @@
     padding: 0.5em 1em;
     cursor: pointer;
     font-size: 1.3em;
-    background-color: #F9F6F1;
+    background-color: #F8EFCD;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .nested-accordion-header:hover {
-    background-color: #F4F1E9;
+    background-color: #E8E1C7;
     color: #000;
   }
   

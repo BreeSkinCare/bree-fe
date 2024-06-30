@@ -1,3 +1,4 @@
+import { Avatar } from "@mui/material";
 import React, {useEffect, useRef} from "react";
 
 const Message = ({ role, content }) => {
@@ -11,7 +12,7 @@ const Message = ({ role, content }) => {
     return (
         <div ref={ref} className={`message ${role === "user" && "me"}`}>
             <div className="message--info">
-                <img className="input--B--image" src={`/images/${role === "user" ? "usi-small.png" : "B.png"}`} alt={role === "user" ? "User" : "Assistant"} />
+                <Avatar className="input--B--image" src={`/images/${role === "user" ? "usi-small.png" : "B.png"}`} alt={role === "user" ? "User" : "Assistant"} />
 
             </div>
             <div className="message--content">

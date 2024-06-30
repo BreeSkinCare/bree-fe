@@ -10,6 +10,10 @@ import Button from '@mui/material/Button';
 import { logoBree } from "../assets";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Avatar, Box, IconButton, Paper } from "@mui/material";
+import Fingerprint from '@mui/icons-material/Fingerprint';
+
+
 
 const MeetBree = (props) => {
   const [memory, setMemory] = useState();
@@ -19,7 +23,9 @@ const MeetBree = (props) => {
   const [showSignIn, setShowSignIn] = useState(true); // New state for sign-in/sign-up toggle
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // New state for mobile view
   const [showForm, setShowForm] = useState(null); // State to show login/register form
-  const [showMobileModal, setShowMobileModal] = useState(false);
+  const [isSignUpClicked, setIsSignUpClicked] = useState(false);
+  const [isLogInClicked, setIsLogInClicked] = useState(false);
+    const [showMobileModal, setShowMobileModal] = useState(false);
 
   const addMessageToConversation = (message) => {
     if (memory != null) {
@@ -81,7 +87,23 @@ const MeetBree = (props) => {
     setShowMobileModal(false); 
   };
 
+
+  const handleSignUpClick = () => {
+    setIsSignUpClicked(true);
+    setIsLogInClicked(false);
+    handleOpen();
+    toggleSignIn(false);
+  };
+
+  const handleLogInClick = () => {
+    setIsLogInClicked(true);
+    setIsSignUpClicked(false);
+    handleOpen();
+    toggleSignIn(true);
+  };
+
   return (
+
     <div className={`meet-bree-container ${isOpen ? "sidebar-open" : ""}`}>
       {currentStep === 1 ? (
         <div className="landing-screen">
@@ -103,36 +125,104 @@ const MeetBree = (props) => {
           />
           <div className={`sidebar--container ${isOpen ? "open" : ""}`}>
             <div className="sidebar">
-              <img className="usi-img" src="/images/usi.png" alt="usi-img" />
-              <img className="usi" src="/images/usi-text.png" alt="usi-img" />
-              <p style={{ fontFamily: 'Tomato Grotesk', fontSize: '15px', textAlign: 'start', marginTop: '20px', color: 'black', justifyContent: 'left' }}>
+            {/* <Paper
+              sx={{
+                width: '80%',
+                height: 'auto',
+                backgroundColor: '#E3D6C6',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'left',
+                borderRadius: '10px',
+                padding: '10px'
+              }}
+              className="usi"
+            >
+              <Avatar
+                sx={{ width: 56, height: 56, marginRight: '10px' }}
+                src="/images/usi-text.png"
+                alt="usi-img"
+              />pn
+              <div>
+                <p style={{ margin: 0, fontFamily: 'Tomato Grotesk', fontSize: '12px' }}>Email</p>
+                <p style={{ margin: 0, fontFamily: 'Tomato Grotesk', fontSize: '16px' }}>First Name</p>
+              </div>
+            </Paper> */}
+              <p  style={{ fontFamily: 'Tomato Grotesk', fontSize: '15px', textAlign: 'start', marginTop: '200px', color: 'black', justifyContent: 'left' }}>
                 Enhance Your Bree Experience By<br /> Creating An Account.
                 Enjoy Seamless<br /> Integration Across All Our Channels,<br /> With Your Chat History Saved And<br /> Accessible Anytime, Anywhere.
                 <br /><br /><strong>Plus, It's All Completely Free!</strong>
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '100px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start',justifyContent:'left', marginTop: '100px' }}>
                 {isMobile ? (
                   <>
+                  <IconButton sx={{fontFamily:'Tomato Grotesk',fontSize:20}} aria-label="fingerprint" color="white" onClick={showSignUpForm}>
+                    <Fingerprint sx={{fontFamily:'Tomato Grotesk'}}/>
+                    {/* <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', marginBottom: '10px', width: 250, backgroundColor: '#EDE6E3', color: 'black', borderRadius: 10 }} onClick={() => { handleOpen(); toggleSignIn(false); }}> */}
+                      Sign Up
+                    {/* </Button> */}
+                  </IconButton>
+                  <IconButton sx={{fontFamily:'Tomato Grotesk',fontSize:20}} aria-label="fingerprint" color="white"  onClick={showLoginForm}>
+                    <Fingerprint sx={{fontFamily:'Tomato Grotesk'}}/>
+                    {/* <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', marginBottom: '10px', width: 250, backgroundColor: '#EDE6E3', color: 'black', borderRadius: 10 }} onClick={() => { handleOpen(); toggleSignIn(false); }}> */}
+                      Log In
+                    {/* </Button> */}
+                  </IconButton>
+
+{/* 
                     <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', marginBottom: '10px', width: 200, backgroundColor: '#EDE6E3', color: 'black', fontWeight: 'bold', borderRadius: 20 }} onClick={showSignUpForm}>
                       Sign Up
                     </Button>
                     <Button variant="contained" color="primary" style={{ fontFamily: 'Tomato Grotesk', fontWeight: 'bold', marginBottom: '10px', width: 200, backgroundColor: '#ffff', color: 'black', borderRadius: 20 }} onClick={showLoginForm}>
                       Log In
-                    </Button>
+                    </Button> */}
                   </>
                 ) : (
                   <>
-                    <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', marginBottom: '10px', width: 200, backgroundColor: '#EDE6E3', color: 'black', fontWeight: 'bold', borderRadius: 20 }} onClick={() => { handleOpen(); toggleSignIn(false); }}>
-                      Sign Up
-                    </Button>
-                    <Button variant="contained" color="primary" style={{ fontFamily: 'Tomato Grotesk', fontWeight: 'bold', marginBottom: '10px', width: 200, backgroundColor: '#ffff', color: 'black', borderRadius: 20 }} onClick={() => { handleOpen(); toggleSignIn(true); }}>
+                <IconButton
+                        sx={{
+                          fontFamily: 'Tomato Grotesk',
+                          fontSize: 20,
+                          color: isSignUpClicked ? '#black' : 'grey'
+                        }}
+                        aria-label="sign up"
+                        onClick={handleSignUpClick}
+                      >
+                        <Fingerprint
+                          sx={{ fontFamily: 'Tomato Grotesk', color: isSignUpClicked ? '#black' : 'grey' }}
+                        />
+                        Sign Up
+                      </IconButton>
+
+                      <IconButton
+                        sx={{
+                          fontFamily: 'Tomato Grotesk',
+                          fontSize: 20,
+                          color: isLogInClicked ? '#black' : 'grey'
+                        }}
+                        aria-label="log in"
+                        onClick={handleLogInClick}
+                      >
+                        <Fingerprint
+                          sx={{ fontFamily: 'Tomato Grotesk', color: isLogInClicked ? '#black' : 'grey', fontWeight: isLogInClicked ? 'bold' : '10px' }}
+                        />
+                        Log In
+                      </IconButton>
+
+                    {/* <Button variant="contained" color="primary" style={{ fontFamily: 'Tomato Grotesk', marginBottom: '10px', width: 250, backgroundColor: '#ffff', color: 'black', borderRadius: 10 }} onClick={() => { handleOpen(); toggleSignIn(true); }}>
                       Log In
-                    </Button>
+                    </Button> */}
                   </>
                 )}
-                <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', width: 200, backgroundColor: '#ffff', color: '#FFDCBF', borderRadius: 20 }}>
+                                  {/* <IconButton sx={{fontFamily:'Tomato Grotesk',fontSize:20}} aria-label="fingerprint" color="white" >
+                    <Fingerprint sx={{fontFamily:'Tomato Grotesk'}}/> */}
+                    {/* <Button variant="contained" style={{ fontFamily: 'Tomato Grotesk', marginBottom: '10px', width: 250, backgroundColor: '#EDE6E3', color: 'black', borderRadius: 10 }} onClick={() => { handleOpen(); toggleSignIn(false); }}> */}
+                      {/* Not Now */}
+                    {/* </Button> */}
+                  {/* </IconButton> */}
+                {/* <Button variant="outlined" style={{ fontFamily: 'Tomato Grotesk', width: 250, backgroundColor: '#ffff', color: 'black', borderRadius: 10 }}>
                   Not Now
-                </Button>
+                </Button> */}
               </div>
             </div>
           </div>

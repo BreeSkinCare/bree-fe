@@ -1,13 +1,12 @@
 /* General styling */
 
-
 .meet-bree-container {
   display: flex;
   width: 100%;
   height: 100vh;
   background-color: #faf3ea;
-  transition: transform 0.3s ease; /* Smooth transition for main container */
-  overflow: hidden; /* Prevents content overflow */
+  transition: transform 0.3s ease;
+  overflow: hidden;
 }
 
 .landing-screen {
@@ -21,8 +20,7 @@
 
 .landing-content {
   text-align: center;
-  margin-top: 20%;
-  margin-top: 100px;
+  padding: 5%;
 }
 
 /* Sidebar styling */
@@ -31,11 +29,12 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 300px; /* Default width for mobile view */
+  width: 100%;
+  max-width: 350px;
   background-color: #f5eadc;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
-  z-index: 1000;
+
 }
 
 .sidebar--container.open {
@@ -45,19 +44,21 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
+  margin-left: 10%;
   width: 100%;
   height: 100%;
 }
 
 .usi-img {
-  width: 135px;
+  width: 80%;
   margin-top: 60px;
 }
 
 .usi {
-  width: 112px;
-  margin-top: 9px;
+  width: 56px;
+  height: 56px;
+  margin-top: 50%;
 }
 
 .meet-bree-container::-webkit-scrollbar {
@@ -70,14 +71,12 @@
 }
 
 header {
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
+  margin: 30px auto 20px auto;
 }
 
 .main-div {
   flex-grow: 1;
+
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -92,9 +91,7 @@ header {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  padding-bottom: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 10px 5%;
   max-width: 85%;
 }
 
@@ -102,9 +99,9 @@ header {
   background-color: white;
   color: black;
   margin: 8px 0;
-  padding: 20px 20px;
+  padding: 20px;
   border-radius: 0px 10px 10px 10px;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
   max-width: max-content;
   white-space: pre-line;
@@ -112,14 +109,12 @@ header {
 
 .message.me {
   flex-direction: row-reverse;
-  display: flex;
   text-align: right;
   margin-left: auto;
 }
 
 .message.me .message--content {
   border-radius: 10px 0px 10px 10px;
-  max-width: max-content;
 }
 
 .message .input--B--image {
@@ -128,14 +123,11 @@ header {
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
-  margin-left: 0;
 }
 
 .message.me .input--B--image {
   margin-left: 10px;
-  margin-right: 0;
 }
-
 .bottom--container {
   display: flex;
   flex-direction: column;
@@ -143,22 +135,18 @@ header {
   margin-top: 70px;
   width: 100%;
 }
-
 .input--container {
   display: flex;
   align-items: center;
   border-radius: 60px;
   background: #fff;
   box-shadow: 4px 6px 30px 0px rgba(70, 69, 69, 0.1);
-  max-width: 1053px;
+  width: 30vw;
+  max-width: 90%;
   flex-shrink: 0;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 25px 27px;
-  width: 80%;
-  margin-top: 10px;
+  margin: 10px auto;
+  padding: 1.5%;
 }
-
 .input--B--image {
   width: 34px;
   background-color: rgba(150, 110, 224, 0.20);
@@ -166,14 +154,13 @@ header {
   border-radius: 50%;
   margin-right: 32px;
 }
-
 .input--input {
   width: 100%;
   color: black;
   font-family: 'Raleway', sans-serif;
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: 500;
-  line-height: 150%;
+  line-height: 1.5;
   border: none;
   outline: none;
   text-align: left;
@@ -186,27 +173,26 @@ header {
 
 .input--send {
   cursor: pointer;
-  background: #f5eadc; /* Adjust background color */
+  background: #f5eadc;
   border: none;
   padding: 10px;
   border-radius: 20px;
-  margin-left: 10px; /* Adjust margin */
-  font-size: 16px; /* Adjust font size */
+  margin-left: 10px;
+  font-size: 1rem;
 }
 
 .input--agree {
   color: #000;
   text-align: center;
   font-family: 'Raleway', sans-serif;
-  font-size: 12px; /* Adjust font size */
+  font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.5;
   opacity: 0.5;
-  height: auto; /* Remove fixed height */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5px 0; /* Reduce margin to remove extra space */
+  margin: 5px 0;
 }
 
 .chat::-webkit-scrollbar {
@@ -224,27 +210,34 @@ header {
     display: block;
   }
 
+  
+
   .input--agree {
-    font-size: 10px; /* Adjust font size */
+    font-size: 0.45rem;
   }
 
   .sidebar--container {
+
+    
     width: 70%;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
   }
 
   .sidebar--container.open {
+    
     transform: translateX(0);
   }
 
   .main-div {
     transition: transform 0.3s ease;
+    
     margin-left: 0;
     flex: 1 1 auto;
   }
 
   .meet-bree-container.sidebar-open .main-div {
+    
     transform: translateX(70%);
   }
 
@@ -252,42 +245,42 @@ header {
     background-color: white;
     color: black;
     margin: 5px 0;
-    padding: 10px 15px; /* Adjust padding for better fit on mobile */
+    padding: 10px 15px;
     border-radius: 0px 10px 10px 10px;
-    font-size: 14px; /* Reduce font size for better readability on mobile */
+    font-size: 0.875rem;
     line-height: 1.5;
-    max-width: 80%; /* Ensure it doesn't overflow the screen */
-    white-space: pre-wrap; /* Ensure long words break correctly */
-    word-wrap: break-word; /* Ensure long words break correctly */
+    max-width: 80%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
 
   .input--container {
     display: flex;
     align-items: center;
-    border-radius: 30px; /* Adjust border radius for better look on mobile */
+    border-radius: 30px;
     background: #fff;
     box-shadow: 2px 4px 15px rgba(70, 69, 69, 0.1);
-    width: 100%; /* Full width on mobile */
-    padding: 10px; /* Adjust padding for better fit on mobile */
-    margin: 10px auto; /* Center horizontally and reduce margin */
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
   }
 
   .input--input {
     width: 100%;
     color: black;
     font-family: 'Raleway', sans-serif;
-    font-size: 14px; /* Adjust font size for better readability */
+    font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.5;
     border: none;
     outline: none;
     background-color: white;
-    padding: 10px; /* Add padding for better look */
-    border-radius: 20px; /* Adjust border radius */
+    padding: 10px;
+    border-radius: 20px;
   }
 
   .input--input::placeholder {
-    color: #aaa; /* Adjust placeholder color */
+    color: #aaa;
   }
 
   .bottom--container {
@@ -298,96 +291,91 @@ header {
     padding: 10px; /* Adjust padding */
     margin-top: 10px; /* Reduce top margin */
   }
-
   .input--send {
     cursor: pointer;
-    background: #f5eadc; /* Adjust background color */
+    background: #f5eadc;
     border: none;
     padding: 10px;
     border-radius: 20px;
-    margin-left: 10px; /* Adjust margin */
-    font-size: 16px; /* Adjust font size */
+    margin-left: 10px;
+    font-size: 1rem;
   }
 
   .message {
-    padding-left: 10px; /* Reduce padding for smaller screens */
-    padding-right: 10px; /* Reduce padding for smaller screens */
-    max-width: 90%; /* Ensure it doesn't overflow the screen */
+    padding: 10px 5%;
+    max-width: 90%;
     display: flex;
-    align-items: flex-start; /* Align items to the start */
+    align-items: flex-start;
   }
 
   .message .input--B--image {
-    width: 32px; /* Adjust profile image size */
-    height: 32px; /* Adjust profile image size */
-    margin-right: 10px; /* Ensure proper spacing */
-    margin-left: 0; /* Ensure no extra left margin */
-    border-radius: 50%; /* Ensure it stays circular */
-    object-fit: cover; /* Ensure the image fits well */
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .message.me {
     flex-direction: row-reverse;
     text-align: right;
     margin-left: auto;
-    padding-left: 10px; /* Ensure consistent left padding for right-aligned messages */
-    padding-right: 0; /* Remove extra right padding */
+    padding-left: 10px;
   }
 
   .message.me .input--B--image {
-    margin-left: 10px; /* Ensure proper spacing for right-aligned profile image */
-    margin-right: 0; /* Ensure no extra right margin */
+    margin-left: 10px;
   }
 
   .message--content {
     border-radius: 0px 10px 10px 10px;
-    max-width: 100%; /* Ensure it doesn't overflow the screen */
-    white-space: pre-wrap; /* Ensure long words break correctly */
-    word-wrap: break-word; /* Ensure long words break correctly */
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
 
   .message.me .message--content {
     border-radius: 10px 0px 10px 10px;
-    max-width: 100%; /* Ensure it doesn't overflow the screen */
+    max-width: 100%;
   }
 }
 
-@media (min-width: 793px) {
+@media (min-width: 769px) {
   .menu-button {
     display: none;
   }
-
   .sidebar--container {
-    width: 50%; /* Increase width for desktop view */
-    transform: translateX(0); /* Ensure sidebar is always visible on desktop */
-    position: relative; /* Position relative to maintain the layout */
+
+    width: 80vw;
+    transform: translateX(0);
+    position: relative;
+  }
+  .main-div {
+    padding-left: 0; /* Reset any previous padding */
+    padding-right: 0; /* Reset any previous padding */
+
+   /* Adjust margin to align with sidebar width */
   }
 
-  .main-div {
-    padding-left: 10%; /* Adjust padding to match the increased width of the sidebar */
-  }
 }
 
 @media (max-width: 370px) {
   .nav-link {
     color: #000;
     text-align: center;
-    font-size: 10px;
-    font-style: normal;
+    font-size: 0.625rem;
     font-weight: 600;
-    line-height: 150%;
-    padding-left: 9px;
-    padding-right: 9px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px;
     border-radius: 30px;
   }
 }
 
 @media (max-width: 768px) {
-  
   .MuiDialog-root .MuiDialog-container {
     align-items: flex-start;
+  }
+  .sidebar {
+    margin-top: 20px; 
   }
 
   .MuiPaper-root {
@@ -399,12 +387,10 @@ header {
   }
 }
 
-/* Ensure the container has a high z-index */
 .MuiDialog-root {
-  z-index: 1300 !important; /* Adjust as necessary */
+  z-index: 1300 !important;
 }
 
-/* Adjust the position of the close button */
 .MuiDialogTitle-root {
   display: flex;
   justify-content: flex-end;
@@ -412,5 +398,5 @@ header {
 }
 
 .MuiDialogTitle-root button {
-  font-size: 16px;
+  font-size: 1rem;
 }

@@ -1,5 +1,6 @@
 import {React, useState} from "react";
 import {fetchData} from "../../services/api";
+import { Avatar } from "@mui/material";
 
 const Input = (props) => {
 
@@ -33,7 +34,7 @@ const Input = (props) => {
     return (
         <div className="bottom--container" >
             <div className="input--container">
-                <img className="input--B--image" src="/images/B.png" alt="B-png"/>
+                <Avatar className="input--B--image" src="/images/B.png" alt="B-png"/>
                 <input
                     className="input--input"
                     type="text"

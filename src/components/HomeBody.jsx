@@ -42,7 +42,7 @@ const HomeBody = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h1 className={`${styles.sectionHeadTextAbout} text-center font-light text-[25px] sm:text-[35px]`}>
+        <h1 style={{display:'flex',flex:'start',flexDirection:'column'}} className={`${styles.sectionHeadTextAbout} text-center font-light text-[25px] sm:text-[35px]`}>
           Our Mission <br />
           <strong>Build New Pathways To Apprehend Skin Health</strong>
         </h1>
@@ -66,11 +66,11 @@ const HomeBody = () => {
         }}
       />
       <motion.div variants={textVariant()}>
-        <h1 className={`${styles.sectionHeadTextAbout} text-center font-medium text-[25px] sm:text-[30px] mt-10`}>
+        <h1 style={{display:'flex',flex:'start'}} className={`${styles.sectionHeadTextAbout} text-center font-medium text-[25px] sm:text-[30px] mt-20`}>
           What sets us apart? <br />
         </h1>
       </motion.div>
-      <div className="flex flex-col sm:flex-row justify-start items-start min-h-[40vh] text-start font-medium px-4 sm:px-0">
+      <div className="flex flex-col sm:flex-row justify-start items-start min-h-[20vh] text-start font-medium px-4 sm:px-0">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className="text-black text-[16px] sm:text-[25px] mt-4 sm:mt-0"
