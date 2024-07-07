@@ -337,22 +337,25 @@ const LoginRegister = ({ toggleSignIn, mobileMode, showSignIn, closeForm }) => {
               >
                 Continue with Google
               </Button>
-              <Button
-                variant="contained"
-                onClick={toggleSignInState}
-                sx={{
-                  marginTop: 2,
-                  fontFamily: 'Tomato Grotesk',
-                  backgroundColor: '#fff',
-                  color: '#000',
-                  '&:hover': {
-                    backgroundColor: '#f5f5f5',
-                  },
-                }}
-                fullWidth
-              >
-                Create Account
-              </Button>
+              {mobileMode && (
+                <Button
+                  variant="contained"
+                  onClick={toggleSignInState}
+                  className="mobile-only"
+                  sx={{
+                    marginTop: 2,
+                    fontFamily: 'Tomato Grotesk',
+                    backgroundColor: '#fff',
+                    color: '#000',
+                    '&:hover': {
+                      backgroundColor: '#f5f5f5',
+                    },
+                  }}
+                  fullWidth
+                >
+                  Create Account
+                </Button>
+              )}
             </Components.Form>
           </Components.SignInContainer>
 

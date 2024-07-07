@@ -16,7 +16,7 @@ const AccordionItem = ({ title, content, onClick, link, target }) => {
   };
 
   return (
-    <div className={`accordion-item ${isOpen ? 'open' : ''}`}>
+    <div className={`accordion-item ${isOpen ? 'open' : ''}`} >
       {link ? (
         <Link to={link} target={target} className="accordion-header" onClick={toggleAccordion}>
           <h3>{title}</h3>

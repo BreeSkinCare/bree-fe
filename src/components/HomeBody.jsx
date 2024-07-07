@@ -42,9 +42,9 @@ const HomeBody = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h1 style={{display:'flex',flex:'start',flexDirection:'column'}} className={`${styles.sectionHeadTextAbout} text-center font-light text-[25px] sm:text-[35px]`}>
+        <h1  className={`${styles.sectionHeadTextAbout} text-start font-light text-[25px] sm:text-[35px]`}>
           Our Mission <br />
-          <strong>Build New Pathways To Apprehend Skin Health</strong>
+          <strong style={{fontWeight:'bold'}}>Build New Pathways To Apprehend Skin Health</strong>
         </h1>
       </motion.div>
       <div className="flex flex-col sm:flex-row justify-start items-start sm:items-center min-h-[20vh] text-start font-light px-4 sm:px-0">
@@ -59,9 +59,10 @@ const HomeBody = () => {
       <Box
         sx={{
           width: '100%',
-          height: 300,
+          height: 600,
           borderRadius: 20,
           bgcolor: '#FAF5EA',
+          marginBottom:30,
           mt: 4,
         }}
       />
@@ -73,13 +74,13 @@ const HomeBody = () => {
       <div className="flex flex-col sm:flex-row justify-start items-start min-h-[20vh] text-start font-medium px-4 sm:px-0">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="text-black text-[16px] sm:text-[25px] mt-4 sm:mt-0"
+          className="text-black text-[30px] sm:text-[46px] mt-4 sm:mt-0"
         >
-          <strong>A Personal Skin Assistant for Everyone, and Completely Free.</strong> <span className="text-[#756E6E]">Bree is redefining new Pathways to understand and care about the skin, empowering self-knowledge through actionable insights, based on singular data that reflects skin identity.</span>
+          <strong style={{fontWeight:'bold'}}>A Personal Skin Assistant for Everyone, and Completely Free.</strong> <span className="text-[#756E6E]">Bree is redefining new Pathways to understand and care about the skin, empowering self-knowledge through actionable insights, based on singular data that reflects skin identity.</span>
         </motion.p>
       </div>
 
-      <div className="video-wrapper">
+      <div className="video-wrapper" style={{marginTop:50}}>
         <div>
             <video
               src={videoAnimation}

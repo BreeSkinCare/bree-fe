@@ -1,10 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
-import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import photoPhone from '../../public/images/phones.png';
 
@@ -66,22 +63,22 @@ const Contact = () => {
   };
 
   return (
-    <div className={`xl:mt-12 flex flex-col gap-10 overflow-hidden px-5`}>
+    <div className="flex flex-col gap-10 overflow-hidden px-5 mt-10" style={{ marginTop: 100 }}>
       <motion.div
         variants={slideIn("left", "tween", 0.1, 1)}
-        className='flex-[1.75] p-8 rounded-2xl'
+        className='flex-[1.75] p-8 rounded-2xl mx-auto w-full max-w-3xl'
         style={{ backgroundColor: '#FFFEF2', border: '2px solid #F5EADC' }}
       >
-        <p className={styles.sectionSubText} style={{ color: '#868686' }}>Get in touch</p>
-        <h3 className={styles.sectionHeadText} style={{ color: 'black' }}>Contact.</h3>
+        <p className={styles.sectionSubText} style={{ color: '#868686', textAlign: 'center' }}>Get in touch</p>
+        <h3 className={styles.sectionHeadText} style={{ color: 'black', textAlign: 'center' }}>Contact.</h3>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className='mt-12 flex flex-col gap-9'
+          className='mt-8 flex flex-col gap-6'
         >
           <label className='flex flex-col'>
-            <span className='font-medium mb-5' style={{ color: 'black' }}>Your Name</span>
+            <span className='font-medium mb-2' style={{ color: 'black' }}>Your Name</span>
             <input
               type='text'
               name='name'
@@ -93,19 +90,19 @@ const Contact = () => {
             />
           </label>
           <label className='flex flex-col'>
-            <span className='font-medium mb-4' style={{ color: 'black' }}>Your email</span>
+            <span className='font-medium mb-2' style={{ color: 'black' }}>Your Email</span>
             <input
               type='email'
               name='email'
               value={form.email}
               onChange={handleChange}
-              placeholder="What's your web address?"
+              placeholder="What's your email address?"
               style={{ backgroundColor: '#FFFEF2', color: 'black', border: '1px solid #F5EADC', padding: '10px', borderRadius: '8px' }}
               className='outline-none'
             />
           </label>
           <label className='flex flex-col'>
-            <span className='font-medium mb-4' style={{ color: 'black' }}>Your Message</span>
+            <span className='font-medium mb-2' style={{ color: 'black' }}>Your Message</span>
             <textarea
               rows={7}
               name='message'
@@ -119,7 +116,7 @@ const Contact = () => {
 
           <button
             type='submit'
-            className='py-3 px-8 rounded-xl outline-none w-fit font-bold shadow-md'
+            className='py-3 px-8 rounded-xl outline-none w-fit font-bold shadow-md mx-auto'
             style={{ backgroundColor: '#F5EADC', color: 'black' }}
           >
             {loading ? "Sending..." : "Send"}
@@ -140,4 +137,4 @@ const Contact = () => {
   );
 };
 
-export default SectionWrapper(Contact, "contact");
+export default Contact;

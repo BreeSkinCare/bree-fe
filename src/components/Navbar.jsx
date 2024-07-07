@@ -28,7 +28,7 @@ const Navbar = () => {
 
   const handleNavigation = (nav) => {
     setActive(nav.title);
-    if (nav.id === "meet-bree" || nav.id === "story") {
+    if (nav.id === "meet-bree" || nav.id === "story" || nav.id === "contact") {
       navigate(`/${nav.id}`);
     } else if (nav.id === "/") {
       navigate(`/`);
@@ -40,7 +40,7 @@ const Navbar = () => {
   return (
     <nav
       className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 transition-colors duration-500 ${
-        scrolled ? "bg-black bg-opacity-10" : "bg-white bg-opacity-50"
+        scrolled ? "bg-white bg-opacity-100" : "bg-white bg-opacity-100"
       }`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
@@ -70,7 +70,7 @@ const Navbar = () => {
               {nav.id === "meet-bree" ? (
                 <Button
                   variant="contained"
-                  style={{ backgroundColor: "black" }}
+                  style={{ backgroundColor: "#F5EADC",color:'black',fontWeight:'bold'}}
                 >
                   {nav.title}
                 </Button>

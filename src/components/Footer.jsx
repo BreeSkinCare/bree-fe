@@ -17,6 +17,7 @@ const Footer = () => {
           <ul className="list-none p-0 mt-2 text-center sm:text-left">
             <li className="mb-1"><Link to="/" className="text-gray-600 no-underline">Mission</Link></li>
             <li className="mb-1"><Link to="/story" className="text-gray-600 no-underline">Story</Link></li>
+            <li className="mb-1"><Link to="/contact" className="text-gray-600 no-underline">Contact</Link></li>
             <li className="mb-1"><Link to="/privacy-policy" className="text-gray-600 no-underline" target="_blank">Privacy</Link></li>
             <li className="mb-1"><Link to="/bree" className="text-gray-600 no-underline">Bree</Link></li>
           </ul>

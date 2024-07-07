@@ -20,7 +20,7 @@ const App = () => {
         <Route path='/' element={<Hero />} />
         <Route path='/about' element={<About />} />
         <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-        <Route path='/contact' element={<Contact />} />
+
      
       </Routes>
       {!excludedPaths.includes(location.pathname) && (
@@ -52,13 +52,19 @@ const App = () => {
           <Experience />
 
           </div>
-          <Contact />
+          <Footer />
         </div>
       )}
-   {location.pathname === '/meet-bree' && (  /* Fixing the syntax here */
+   {location.pathname === '/meet-bree' && (  
         <div>
           <Navbar />
           <MeetBree />
+        </div>
+      )}
+       {location.pathname === '/contact' && (  
+        <div style={{ backgroundColor: '#FFFEF2'}}>
+          <Navbar />
+          <Contact />
         </div>
       )}
     </>

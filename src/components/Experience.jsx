@@ -52,16 +52,8 @@ const ExperienceCard = ({ experience, index }) => {
       }}
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
       date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
-      icon={
-        <div className='flex justify-center items-center w-full h-full'>
-          <img
-            src={experience.icon}
-            alt={experience.company_name}
-            className='w-[60%] h-[60%] object-contain'
-          />
-        </div>
-      }
+      iconStyle={{ background: 'white', borderColor:'#232631' }}
+      
     >
       <motion.div
         ref={ref}
@@ -70,19 +62,19 @@ const ExperienceCard = ({ experience, index }) => {
         transition={{ duration: 0.5 }}
       >
         <div>
-          <h3 className="font-montserrat-black text-[24px]">{experience.title}</h3>
+          <h3 className="font-montserrat-black text-[35px]" style={{fontWeight:'bold',marginLeft:20}}>{experience.title}</h3>
           <p className="font-montserrat text-[24px]">
             {experience.company_name}
           </p>
         </div>
-        <ul className='mt-5 list-disc ml-5 space-y-2'>
+        <ul className='mt-5 list-disc space-y-2'>
           {experience.points.map((point, idx) => (
-            <li
-              key={`experience-point-${idx}`}
-              className="font-montserrat text-[20px]"
+            <h1
+              key={`experience-point-${idx}` }
+              className="font-montserrat text-[22px]"  style={{fontWeight:'semi-bold',marginLeft:20}} 
             >
               {point}
-            </li>
+            </h1>
           ))}
         </ul>
         <div className="dottedLine mt-5">
@@ -125,7 +117,7 @@ const Experience = () => {
       </div>
 
       <motion.div className="mt-20" variants={textVariant()}>
-        <h1 style={{color:'black'}}className="font-tomato-grotesk-regular text-[25px] sm:text-[35px] text-left">
+        <h1 style={{color:'#827F7A',fontWeight:'semiBold'}}className="font-tomato-grotesk-regular text-[25px] sm:text-[45px] text-left">
           Watch <br />
         </h1>
       </motion.div>
@@ -133,7 +125,7 @@ const Experience = () => {
       <div className="text-left font-tomato-grotesk-regular">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="text-black text-[20px] sm:text-[25px] mt-5"
+          className="text-black text-[20px] sm:text-[35px] mt-5"
         >
           Donika highlights how singular data, combined with the power <br />
           of digital twin technology, will transform consumer behaviors.
@@ -145,15 +137,15 @@ const Experience = () => {
           width: '100%',
           height: 500,
           borderRadius: 20,
-          bgcolor: '#FAF5EA',
-          mt: 2,
+          bgcolor: '#F5EADC',
+          mt: 10,
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       />
       <motion.div className="mt-10" variants={textVariant()}>
-        <h1 className="font-tomato-grotesk-regular text-[20px] sm:text-[25px] text-left">
+        <h1 className="font-tomato-grotesk-regular text-[20px]  sm:text-[25px] text-left" style={{color:'black'}}>
           Donika Vata <br />
         </h1>
       </motion.div>
@@ -163,10 +155,10 @@ const Experience = () => {
           className="text-black text-[20px] sm:text-[25px] mt-5 flex flex-col"
         >
           Co-Founder
-          <span className="font-tomato-grotesk-thin">
+          <span className="font-tomato-grotesk-thin" style={{fontStyle:'thin',fontFamily:'Tomato Grotesk Thin'}}>
             MD, Chief medical officer
           </span>
-          <span className="font-tomato-grotesk-thin text-gray-500 text-[15px]">
+          <span className="font-tomato-grotesk text-gray-500 text-[15px]" style={{marginTop:20,fontStyle:'bolder'}}>
             Talk to donika
           </span>
         </motion.p>

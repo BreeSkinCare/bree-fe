@@ -16,12 +16,12 @@ const Faq = () => {
           FAQ <br />
         </h1>
       </motion.div>
-      <div className="flex flex-col justify-center items-center min-h-[20vh] text-center font-light px-4 sm:px-0">
+      <div className="flex flex-col justify-center items-center min-h-[20vh] text-center font-light px-4 sm:px-0" >
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="text-[#868686] text-[16px] sm:text-[20px] mt-4 sm:mt-0"
+          className="text-[#868686] text-[16px] sm:text-[25px] mt-4 sm:mt-10"
         >
-          Should you have any inquiries about Bree, kindly see the list below for our most frequently asked questions.<br />
+          Should you have any inquiries about Bree, kindly see the list below for our most frequently asked questions.
           Should your question not be listed here, please contact us.
         </motion.p>
       </div>

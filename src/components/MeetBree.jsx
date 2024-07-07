@@ -12,8 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Avatar, Box, IconButton, Paper } from "@mui/material";
 import Fingerprint from '@mui/icons-material/Fingerprint';
-
-
+import { fadeIn, textVariant } from "../utils/motion";
+import { motion } from "framer-motion";
 
 const MeetBree = (props) => {
   const [memory, setMemory] = useState();
@@ -106,15 +106,21 @@ const MeetBree = (props) => {
 
     <div className={`meet-bree-container ${isOpen ? "sidebar-open" : ""}`}>
       {currentStep === 1 ? (
+      
         <div className="landing-screen">
+          <motion.div variants={textVariant()}>
           <div className="landing-content">
-            <img src={logoBree} alt="Bree Logo" style={{ width: '700px' }} />
-            <p style={{ color: 'black', fontFamily: 'Tomato Grotesk', marginBottom: 50 }}>Your Personal Skin Assistant</p>
-            <Button variant="contained" onClick={handleNext} style={{ width: 200, height: 50, borderRadius: 50, background: '#F5EADC', color: 'black', fontFamily: 'Tomato Grotesk' }}>
+          
+            <img src={logoBree} alt="Bree Logo" />
+            <p style={{ color: 'black', fontFamily: 'Tomato Grotesk', marginBottom: 100 }}>Your Personal Skin Assistant</p>
+            <Button variant="contained" onClick={handleNext} style={{ width: 200, height: 50, borderRadius: 50, background: '#F5EADC', color: 'black', fontFamily: 'Tomato Grotesk Thin',fontSize:15 }} >
               Next
             </Button>
+           
           </div>
+          </motion.div>
         </div>
+
       ) : (
         <div className="meet-bree-container">
           <FontAwesomeIcon

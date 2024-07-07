@@ -42,16 +42,17 @@ const About = () => {
         <h1 className={`${styles.sectionHeadTextAbout} text-center font-light`}>
           Bonjour, I am Bree <br />
           Your Personal Skin Assistant
+          <p style={{fontSize:20,fontWeight:'bold'}}>My skin. my singularity</p>
         </h1>
       </motion.div>
       <div className="flex justify-center items-center min-h-screen text-start font-light px-4 sm:px-0">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="text-black text-[18px] sm:text-[25px]"
+          className="text-black text-[18px] sm:text-[25px]" style={{marginBottom:200}}
         >
-          I’m your <strong>dedicated</strong> guide on your journey to skin health,<br />
-          offering you advice grounded in <strong>scientific knowledge</strong><br />
-          whenever you need me.<br /><br />
+          I’m your <strong style={{fontFamily:'Raleway semiBold', fontStyle:'italic'}}>dedicated</strong> guide on your journey to skin health,<br />
+          offering you advice grounded in <strong style={{fontFamily:'Raleway semiBold', fontStyle:'italic'}}>scientific knowledge</strong><br />
+          whenever you need me.<br /><br /> 
 
           Some see me as a trendsetter, while others appreciate <br />
           my intelligence and caring nature.<br /><br />
@@ -60,9 +61,9 @@ const About = () => {
           source of feedback, I’m here to support you.<br /><br />
 
           Together, we can strive for the healthiest skin possible!<br />
-          And remember, I’m always here to <strong>serve you at no cost</strong>.<br /><br /><br />
+          And remember, I’m always here to <strong style={{fontFamily:'Raleway semiBold', fontStyle:'italic'}}>serve you at no cost</strong>.<br /><br /><br />
           Yours,<br /><br />
-          <strong>Bree</strong>
+          <strong style={{ fontFamily:'Raleway semiBold', fontStyle:'italic'}}>Bree</strong>
         </motion.p>
       </div>
     </>

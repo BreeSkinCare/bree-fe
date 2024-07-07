@@ -34,10 +34,10 @@ export const navLinks = [
     id: "story",
     title: "Story",
   },
-  // {
-  //   id: "contact",
-  //   title: "Contact",
-  // },
+  {
+    id: "contact",
+    title: "Contact",
+  },
   {
     id: "meet-bree",
     title: "Meet Bree",
@@ -146,7 +146,7 @@ const experiences = [
     iconBg: "#383E56",
     // date: "Jan 2022 - Jan 2023",
     points: [
-      "Anticipate your daily skin concerns and adapt your lifestyle accordingly.",
+      'Anticipate your daily skin concerns and adapt your lifestyle accordingly.',
     ],
   },
   // {

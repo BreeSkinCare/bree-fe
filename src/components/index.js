@@ -15,6 +15,7 @@ import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import MeetBree from './MeetBree';
+import { o } from 'maath/dist/index-43782085.esm';
 
 export {
   Hero,
