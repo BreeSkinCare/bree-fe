@@ -52,10 +52,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className="w-11 h-11 object-contain" />
-          <p className="text-black text-[18px] font-bold cursor-pointer flex ">
-            BREE &nbsp;
-          </p>
+          <img src={logo} alt="logo" className="w-8 h-8 object-contain" />
         </Link>
 
         <ul className="list-none hidden sm:flex flex-row gap-10">

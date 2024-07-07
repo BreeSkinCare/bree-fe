@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
 import { slideIn } from "../utils/motion";
 import photoPhone from '../../public/images/phones.png';
+import Footer from "./Footer";
 
 const Contact = () => {
   const formRef = useRef();
@@ -63,11 +64,11 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex flex-col gap-10 overflow-hidden px-5 mt-10" style={{ marginTop: 100 }}>
+    <div className="flex flex-col items-center gap-10 overflow-hidden px-5" >
       <motion.div
         variants={slideIn("left", "tween", 0.1, 1)}
-        className='flex-[1.75] p-8 rounded-2xl mx-auto w-full max-w-3xl'
-        style={{ backgroundColor: '#FFFEF2', border: '2px solid #F5EADC' }}
+        className='p-8 rounded-2xl w-full max-w-3xl'
+        style={{ backgroundColor: '#FFFEF2', border: '2px solid #F5EADC',marginTop: '150px' }}
       >
         <p className={styles.sectionSubText} style={{ color: '#868686', textAlign: 'center' }}>Get in touch</p>
         <h3 className={styles.sectionHeadText} style={{ color: 'black', textAlign: 'center' }}>Contact.</h3>
@@ -124,7 +125,7 @@ const Contact = () => {
         </form>
       </motion.div>
       <div
-        className="w-full bg-[#FCEFCD] p-10 mt-10 rounded-2xl text-center"
+        className="w-full bg-[#FCEFCD] p-10 mt-4 rounded-2xl text-center" style={{marginBottom:20}}
       >
         <h2 className="font-tomato-grotesk text-[25px] sm:text-[35px] text-black mt-5">
           Chat With Me In Real Time On
@@ -133,7 +134,9 @@ const Contact = () => {
           <img src={photoPhone} alt='Instagram' className="w-full h-auto max-w-[600px] sm:max-w-[1200px]" />
         </div>
       </div>
+   
     </div>
+
   );
 };
 

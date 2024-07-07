@@ -1,27 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, MeetBree, HomeBody, Faq, AboutFooter, PrivacyPolicy, Footer, Story } from "./components";
-import useScrollToTop from "./hooks/useScrollToTop";
+import {
+  About,
+  Contact,
+  Experience,
+  Hero,
+  Navbar,
+  HomeBody,
+  Faq,
+  AboutFooter,
+  PrivacyPolicy,
+  Footer,
+  Story,
+  MeetBree,
+} from "./components";
+
+const scrollToTop = () => {
+  document.documentElement.style.scrollBehavior = 'auto'; // Disable smooth scrolling
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+  setTimeout(() => {
+    document.documentElement.style.scrollBehavior = ''; // Re-enable smooth scrolling
+  }, 0);
+};
+
 const App = () => {
   const location = useLocation();
-  useScrollToTop();
 
-  // List of paths that should only show the main component and not the rest
   const excludedPaths = ['/privacy-policy', '/contact', '/meet-bree', '/story'];
+
+  // Ensure the page starts at the top
+  useEffect(() => {
+    scrollToTop();
+  }, [location.pathname]);
 
   return (
     <>
       {!excludedPaths.includes(location.pathname) && (
-        <div style={{ backgroundColor: '#000000' }}> {/* Set the desired background color */}
+        <div style={{ backgroundColor: '#000000' }}>
           <Navbar />
         </div>
       )}
       <Routes>
-        <Route path='/' element={<Hero />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-
-     
+        <Route path="/" element={<Hero />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        {/* Add other routes as needed */}
       </Routes>
       {!excludedPaths.includes(location.pathname) && (
         <div style={{ backgroundColor: '#F8EFCD' }}>
@@ -34,37 +58,29 @@ const App = () => {
           <div style={{ backgroundColor: '#FFFEF2' }}>
             <Footer />
           </div>
-          {/* <Experience />
-          <Tech />
-          <Works />
-          <Feedbacks />
-          <div className='relative z-0'>
-            <Contact />
-            <StarsCanvas />
-          </div> */}
         </div>
       )}
       {location.pathname === '/story' && (
         <div style={{ backgroundColor: '#FFFEF2', minHeight: '100vh' }}>
           <Navbar />
           <Story />
-          <div style={{ backgroundColor: '#FAF5EA'}}>
-          <Experience />
-
+          <div style={{ backgroundColor: '#FAF5EA' }}>
+            <Experience />
           </div>
           <Footer />
         </div>
       )}
-   {location.pathname === '/meet-bree' && (  
+      {location.pathname === '/meet-bree' && (
         <div>
           <Navbar />
           <MeetBree />
         </div>
       )}
-       {location.pathname === '/contact' && (  
-        <div style={{ backgroundColor: '#FFFEF2'}}>
+      {location.pathname === '/contact' && (
+        <div style={{ backgroundColor: '#FFFEF2' }}>
           <Navbar />
           <Contact />
+          <Footer />
         </div>
       )}
     </>

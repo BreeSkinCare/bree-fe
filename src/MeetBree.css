@@ -4,11 +4,10 @@
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: #faf3ea;
+  background: linear-gradient(to bottom, #fdf6ee, #FAF3EA); /* Darker color at the top to lighter color at the bottom */
   transition: transform 0.3s ease;
   overflow: hidden;
 }
-
 .landing-screen {
   display: flex;
   justify-content: center;
@@ -118,11 +117,40 @@ header {
 }
 
 .message .input--B--image {
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
+}
+.message.admin {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 10px 5%;
+  max-width: 85%;
+}
+
+.message.client {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 10px 5%;
+  max-width: 85%;
+  flex-direction: row-reverse;
+  text-align: right;
+  margin-left: auto;
+}
+
+.message.admin .message--content {
+  background-color: #fffbf6; /* Light blue for admin messages */
+  color: #000;
+}
+
+.message.client .message--content {
+  background-color: #F5EADC; /* Light green for client messages */
+  color: #000;
+  border-radius: 10px 0px 10px 10px;
 }
 
 .message.me .input--B--image {
@@ -148,9 +176,10 @@ header {
   padding: 1.5%;
 }
 .input--B--image {
-  width: 34px;
-  background-color: rgba(150, 110, 224, 0.20);
-  padding: 5px;
+  width: 44px;
+  height: 60px;
+  background-color: #F5EADC;
+  padding: 12px;
   border-radius: 50%;
   margin-right: 32px;
 }
@@ -168,7 +197,7 @@ header {
 }
 
 .input--input::placeholder {
-  color: #f5eadc;
+  color: #999999;
 }
 
 .input--send {
@@ -311,9 +340,17 @@ header {
   .message .input--B--image {
     width: 32px;
     height: 32px;
-    margin-right: 10px;
+    margin-right: 2px;
     border-radius: 50%;
     object-fit: cover;
+  }
+  .input--B--image {
+    width: 44px;
+    height: 60px;
+    background-color: #F5EADC;
+    padding: 7px;
+    border-radius: 50%;
+    margin-right: 32px;
   }
 
   .message.me {

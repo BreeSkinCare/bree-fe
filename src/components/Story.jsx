@@ -12,14 +12,14 @@ const Story = () => {
         <h1 className={`${styles.sectionHeadTextAboutWithoutBold} text-[25px] sm:text-[35px] text-left font-tomato-grotesk-regular mt-40`}>
           Our story <br />
         </h1>
-        <h1 className={`${styles.sectionHeadTextAbout} text-[35px] sm:text-[45px] text-left font-tomato-grotesk-bold`}>
+        <h1 className={`${styles.sectionHeadTextAbout} text-[34px] sm:text-[45px] text-left font-tomato-grotesk-bold mt-10 `}>
           <strong>We think outside the Mainstream</strong>
         </h1>
       </motion.div>
-      <div className="text-left max-w-[800px]">
+      <div className="text-left max-w-[800px] sm:max-w-[950px]">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="text-[#868686] text-[20px] font-tomato-grotesk-regular mt-5"
+          className="text-[#868686] text-[20px] font-tomato-grotesk-regular mt-8" style={{marginBottom:100}}
         >
           We strive to transform the paradigm by setting unparalleled standards and technology that connects 
           each individual to their highest, most trusted self. By harnessing the power of singular data, we aim 

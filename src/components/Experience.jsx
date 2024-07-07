@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -29,18 +29,17 @@ const animations = [
   animationData6,
 ];
 
-const ExperienceCard = ({ experience, index }) => {
+const ExperienceCard = ({ experience, animationData }) => {
   const animationRef = useRef(null);
   const { ref, inView } = useInView({
     threshold: 0.5,
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   useEffect(() => {
     if (inView && animationRef.current) {
-      animationRef.current.play();
-    } else if (animationRef.current) {
       animationRef.current.stop();
+      animationRef.current.play();
     }
   }, [inView]);
 
@@ -53,7 +52,6 @@ const ExperienceCard = ({ experience, index }) => {
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
       date={experience.date}
       iconStyle={{ background: 'white', borderColor:'#232631' }}
-      
     >
       <motion.div
         ref={ref}
@@ -85,15 +83,15 @@ const ExperienceCard = ({ experience, index }) => {
         <div className="animation--div mt-5">
           <Lottie
             lottieRef={animationRef}
-            animationData={animations[index]}
-            loop={false}
+            animationData={animationData}
+            loop={true}
             className="max-w-full"
           />
         </div>
       </motion.div>
     </VerticalTimelineElement>
   );
-};
+}
 
 const Experience = () => {
   return (
@@ -110,14 +108,14 @@ const Experience = () => {
             <ExperienceCard
               key={`experience-${index}`}
               experience={experience}
-              index={index}
+              animationData={animations[index]}
             />
           ))}
         </VerticalTimeline>
       </div>
 
       <motion.div className="mt-20" variants={textVariant()}>
-        <h1 style={{color:'#827F7A',fontWeight:'semiBold'}}className="font-tomato-grotesk-regular text-[25px] sm:text-[45px] text-left">
+        <h1 style={{color:'#827F7A',fontWeight:'semiBold'}}className="font-tomato-grotesk-regular text-[25px] sm:text-[35px] text-left">
           Watch <br />
         </h1>
       </motion.div>
@@ -145,7 +143,7 @@ const Experience = () => {
         }}
       />
       <motion.div className="mt-10" variants={textVariant()}>
-        <h1 className="font-tomato-grotesk-regular text-[20px]  sm:text-[25px] text-left" style={{color:'black'}}>
+        <h1 className="font-tomato-grotesk-regular text-[20px]  sm:text-[25px] text-left" style={{color:'black',fontWeight:'bold'}}>
           Donika Vata <br />
         </h1>
       </motion.div>

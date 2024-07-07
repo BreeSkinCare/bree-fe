@@ -10,7 +10,7 @@ const Message = ({ role, content }) => {
     },[content])
 
     return (
-        <div ref={ref} className={`message ${role === "user" && "me"}`}>
+        <div ref={ref} className={`message ${role === "user" ? "client" : "admin"}`}>
             <div className="message--info">
                 <Avatar className="input--B--image" src={`/images/${role === "user" ? "usi-small.png" : "B.png"}`} alt={role === "user" ? "User" : "Assistant"} />
 
