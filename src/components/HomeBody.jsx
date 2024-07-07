@@ -83,18 +83,20 @@ const HomeBody = () => {
       <div className="flex flex-col sm:flex-row justify-start items-start min-h-[20vh] text-start font-medium px-4 sm:px-0">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="text-black text-[30px] sm:text-[46px] mt-4 sm:mt-0"
+          className="text-black text-[25px] sm:text-[46px] mt-4 sm:mt-0"
         >
           <strong style={{ fontWeight: 'bold' }}>A Personal Skin Assistant for Everyone, and Completely Free.</strong> <span className="text-[#756E6E]">Bree is redefining new <br></br> Pathways to understand and care about the skin, empowering self-knowledge through actionable insights, based on singular data that reflects skin identity.</span>
         </motion.p>
       </div>
 
       <div className="video-wrapper" style={{ marginTop: 50 }}>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: videoInView ? 1 : 0, scale: videoInView ? 1 : 0.9 }}
-          transition={{ duration: 0.5 }}
-        >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: videoInView ? 1 : 0, scale: videoInView ? 1 : 0.9 }}
+        transition={{ duration: 0.5 }}
+        className="video-card"
+      >
+        <div className="video-container">
           <video
             ref={videoRef}
             src={videoAnimation}
@@ -103,8 +105,9 @@ const HomeBody = () => {
             controlsList="nodownload"
             onContextMenu={(e) => e.preventDefault()}
           />
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
+    </div>
     </>
   );
 };

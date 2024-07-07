@@ -73,7 +73,7 @@ const LoginRegister = ({ toggleSignIn, mobileMode, showSignIn, closeForm }) => {
   }, [signIn, setError]);
 
   const toggleSignInState = () => {
-    setSignIn(!signIn);
+    setSignIn((prevState) => !prevState);
     if (toggleSignIn) toggleSignIn(!signIn);
   };
 
@@ -362,19 +362,19 @@ const LoginRegister = ({ toggleSignIn, mobileMode, showSignIn, closeForm }) => {
           {!mobileMode && (
             <Components.OverlayContainer show={signIn}>
               <Components.Overlay show={signIn}>
-                <Components.LeftOverlayPanel show={signIn}>
-                  <Components.Title style={{ marginRight: 50, fontFamily: 'Tomato Grotesk' }}>Welcome Back!</Components.Title>
-                  <Components.Paragraph style={{ marginRight: 50, fontFamily: 'Tomato Grotesk' }}>
+                <Components.LeftOverlayPanel show={signIn} >
+                  <Components.Title style={{ marginRight: 20, fontFamily: 'Tomato Grotesk' }}>Welcome Back!</Components.Title>
+                  <Components.Paragraph style={{ marginRight: 20, fontFamily: 'Tomato Grotesk' }}>
                     Please login with your personal info
                   </Components.Paragraph>
-                  <Components.GhostButton onClick={toggleSignInState} style={{ marginRight: 50 }}>
+                  <Components.GhostButton onClick={toggleSignInState} style={{ marginRight: 20 }}>
                     Sign In
                   </Components.GhostButton>
                 </Components.LeftOverlayPanel>
                 <Components.RightOverlayPanel show={!signIn}>
                   <Components.Title style={{ marginRight: 150, fontFamily: 'Tomato Grotesk' }}>Hello, Friend!</Components.Title>
                   <Components.Paragraph style={{ marginRight: 150, fontFamily: 'Tomato Grotesk' }}>
-                    Start journey with us
+                    Start your journey with us
                   </Components.Paragraph>
                   <Components.GhostButton onClick={toggleSignInState} style={{ marginRight: 150 }}>
                     Sign Up

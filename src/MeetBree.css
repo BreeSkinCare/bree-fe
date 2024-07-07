@@ -14,7 +14,7 @@
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: #fffef2;
+  background-color: #FAF3EA;
 }
 
 .landing-content {
@@ -236,6 +236,10 @@ header {
 /* Media queries */
 @media (max-width: 768px) {
   .menu-button {
+    width: 20px;
+    height: 20px;
+    color: #808080;
+   
     display: block;
   }
 
@@ -379,6 +383,7 @@ header {
 
 @media (min-width: 769px) {
   .menu-button {
+    
     display: none;
   }
   .sidebar--container {

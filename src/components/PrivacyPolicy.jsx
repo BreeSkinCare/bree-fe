@@ -4,7 +4,7 @@ import { SectionWrapper } from '../hoc';
 
 const PrivacyPolicy = () => {
   return (
-    <Container style={{width:800}}>
+    <Container maxWidth="md" style={{ padding: '0 20px' }}>
       <Typography variant="h2" gutterBottom>Privacy Policy</Typography>
       <Typography variant="subtitle1" gutterBottom>Effective date: May 24, 2023</Typography>
       
@@ -79,9 +79,6 @@ const PrivacyPolicy = () => {
       <Typography paragraph>
         Additional data that is not explicitly mentioned here, which we will utilize as outlined in this Privacy Policy or as revealed at the time of collection.
       </Typography>
-
-      {/* Continue to format the remaining sections similarly */}
-      
     </Container>
   );
 };
