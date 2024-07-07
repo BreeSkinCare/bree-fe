@@ -1,6 +1,7 @@
 import {React, useState} from "react";
 import {fetchData} from "../../services/api";
 import { Avatar } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Input = (props) => {
 
@@ -96,7 +97,9 @@ const Input = (props) => {
 
             </div>
 
-            <div className="input--agree">By messaging Bree, you are agreeing to our&nbsp; <span style={{fontWeight:'900'}}>Terms of Service and Privacy Policy.</span></div>
+            <div className="input--agree">By messaging Bree, you are agreeing to our&nbsp; <Link to={"/privacy-policy"} style={{fontWeight:'900'}}   
+            link="/privacy-policy"
+            target="_blank">Terms of Service and Privacy Policy.</Link></div>
         </div>
 
     );
