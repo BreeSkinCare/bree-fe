@@ -67,7 +67,7 @@ const Navbar = () => {
               {nav.id === "meet-bree" ? (
                 <Button
                   variant="contained"
-                  style={{ backgroundColor: "#F5EADC",color:'black',fontWeight:'bold'}}
+                  style={{ backgroundColor: "black",color:'white',fontWeight:'bold',borderRadius:20}}
                 >
                   {nav.title}
                 </Button>
@@ -107,7 +107,7 @@ const Navbar = () => {
                     <Button
                       variant="outlined"
                       fullWidth
-                      sx={{ color: "#ffff",borderColor:'#ffff', backgroundColor: "#DED3C5" }}
+                      sx={{ color: "black",borderColor:'#ffff', backgroundColor: "#DED3C5" }}
                     >
                       {nav.title}
                     </Button>

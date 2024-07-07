@@ -40,7 +40,7 @@ export const navLinks = [
   },
   {
     id: "meet-bree",
-    title: "Meet Bree",
+    title: "Chat with Bree",
   },
 ];
 

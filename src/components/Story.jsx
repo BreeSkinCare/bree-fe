@@ -5,15 +5,16 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import '../index.css';
 
+
 const Story = () => {
   return (
     <div className="w-full overflow-hidden" style={{ backgroundColor: '#FFFEF2', padding: '40px 20px', boxSizing: 'border-box' }}>
       <motion.div variants={textVariant()}>
         <h1 className={`${styles.sectionHeadTextAboutWithoutBold} text-[25px] sm:text-[35px] text-left font-tomato-grotesk-regular mt-40`}>
-          Our story <br />
+          Our Story <br />
         </h1>
         <h1 className={`${styles.sectionHeadTextAbout} text-[34px] sm:text-[45px] text-left font-tomato-grotesk-bold mt-10 `}>
-          <strong>We think outside the Mainstream</strong>
+          <strong>We Think Outside The Mainstream</strong>
         </h1>
       </motion.div>
       <div className="text-left max-w-[800px] sm:max-w-[950px]">

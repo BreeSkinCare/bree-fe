@@ -14,11 +14,11 @@ import animationData4 from '../animations/Animation - 1.json';
 import animationData5 from '../animations/Animation - 2.json';
 import animationData6 from '../animations/Animation - 3.json';
 import { useInView } from 'react-intersection-observer';
-
-import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant, fadeIn } from "../utils/motion";
+import { styles } from "../styles";
+
 
 const animations = [
   animationData1,
@@ -53,6 +53,7 @@ const ExperienceCard = ({ experience, animationData }) => {
       date={experience.date}
       iconStyle={{ background: 'white', borderColor:'#232631' }}
     >
+      
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
@@ -154,10 +155,10 @@ const Experience = () => {
         >
           Co-Founder
           <span className="font-tomato-grotesk-thin" style={{fontStyle:'thin',fontFamily:'Tomato Grotesk Thin'}}>
-            MD, Chief medical officer
+            MD, Chief Medical Officer
           </span>
-          <span className="font-tomato-grotesk text-gray-500 text-[15px]" style={{marginTop:20,fontStyle:'bolder'}}>
-            Talk to donika
+          <span  className="font-tomato-grotesk text-gray-500 text-[15px]" style={{marginTop:20,fontStyle:'bolder'}}>
+            Talk to Donika
           </span>
         </motion.p>
       </div>

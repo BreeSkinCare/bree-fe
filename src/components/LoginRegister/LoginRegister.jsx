@@ -72,10 +72,15 @@ const LoginRegister = ({ toggleSignIn, mobileMode, showSignIn, closeForm }) => {
     setError(null);
   }, [signIn, setError]);
 
+  useEffect(() => {
+    setSignIn(showSignIn);
+  }, [showSignIn]);
+
+
   const toggleSignInState = () => {
     setSignIn((prevState) => !prevState);
     if (toggleSignIn) toggleSignIn(!signIn);
-  };
+};
 
   return (
     <Components.Container>
@@ -374,7 +379,7 @@ const LoginRegister = ({ toggleSignIn, mobileMode, showSignIn, closeForm }) => {
                 <Components.RightOverlayPanel show={!signIn}>
                   <Components.Title style={{ marginRight: 150, fontFamily: 'Tomato Grotesk' }}>Hello, Friend!</Components.Title>
                   <Components.Paragraph style={{ marginRight: 150, fontFamily: 'Tomato Grotesk' }}>
-                    Start your journey with us
+                    Start journey with us
                   </Components.Paragraph>
                   <Components.GhostButton onClick={toggleSignInState} style={{ marginRight: 150 }}>
                     Sign Up

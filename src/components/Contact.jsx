@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
 import { slideIn } from "../utils/motion";
-import photoPhone from '../../public/images/phones.png';
 import Footer from "./Footer";
 
 const Contact = () => {
@@ -124,16 +123,7 @@ const Contact = () => {
           </button>
         </form>
       </motion.div>
-      <div
-        className="w-full bg-[#FCEFCD] p-10 mt-4 rounded-2xl text-center" style={{marginBottom:20}}
-      >
-        <h2 className="font-tomato-grotesk text-[25px] sm:text-[35px] text-black mt-5">
-          Chat With Me In Real Time On
-        </h2>
-        <div className="flex justify-center gap-5 mt-5">
-          <img src={photoPhone} alt='Instagram' className="w-full h-auto max-w-[600px] sm:max-w-[1200px]" />
-        </div>
-      </div>
+
    
     </div>
 

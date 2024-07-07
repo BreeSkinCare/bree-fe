@@ -13,6 +13,7 @@ import {
   Footer,
   Story,
   MeetBree,
+  SecondaryBody,
 } from "./components";
 
 const scrollToTop = () => {
@@ -52,9 +53,15 @@ const App = () => {
           <About />
           <div style={{ backgroundColor: '#FFFEF2' }}>
             <HomeBody />
+            <div style={{ backgroundColor: '#F8EFCD' }}>
+            <SecondaryBody />
+            </div>
           </div>
+          <div style={{ backgroundColor: '#FFFEF2' }}>
           <Faq />
           <AboutFooter />
+          </div>
+
           <div style={{ backgroundColor: '#FFFEF2' }}>
             <Footer />
           </div>

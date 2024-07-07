@@ -10,15 +10,15 @@ import '../hero.css';
 const HomeBody = () => {
   const videoRef = useRef(null);
   const [isWindows, setIsWindows] = useState(navigator.userAgent.indexOf('Windows') > -1);
-  const [videoInView, setVideoInView] = useState(false);
 
   const missionStyle = {
-    fontSize: isWindows ? '30px' : '25px',
+    fontSize: isWindows ? '25px' : '25px',
   };
-  
+
   const boldStyle = {
     fontWeight: 'bold',
-    fontSize: isWindows ? '40px' : '22px',
+    marginTop: '20px',
+    fontSize: isWindows ? '43px' : '22px',
   };
 
   const headStyle = {
@@ -29,22 +29,24 @@ const HomeBody = () => {
   };
 
   useEffect(() => {
-    const handleIntersection = (entries) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setVideoInView(true);
           videoRef.current.play();
         } else {
-          setVideoInView(false);
           videoRef.current.pause();
         }
       });
-    };
+    }, { threshold: 0.5 });
 
-    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
-    observer.observe(videoRef.current);
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
 
     return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
       observer.disconnect();
     };
   }, []);
@@ -52,8 +54,10 @@ const HomeBody = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h1 className={`${styles.sectionHeadTextTittle} text-start font-light text-[25px] sm:text-[35px]`} style={missionStyle}> 
+        <h1 className={`${styles.sectionHeadTextTittle} text-start font-light text-[25px] sm:text-[35px]`} style={missionStyle}>
           Our Mission <br />
+        </h1>
+        <h1 className={`${styles.sectionHeadTextTittle} text-start font-light text-[25px] sm:text-[35px]`} style={{ marginTop: 30 }}>
           <strong style={boldStyle}>Build New Pathways To Apprehend Skin Health</strong>
         </h1>
       </motion.div>
@@ -61,7 +65,7 @@ const HomeBody = () => {
         <motion.p
           variants={fadeIn("", "", 0.1, 1)} style={headStyle}
         >
-          The technological innovations of this new era will result in radical behavioural shifts: We predict that
+          The technological innovations of this new era will result in radical behavioural shifts: we predict <br></br>that
           the individual-level knowledge of the skin, the body’s largest organ, will lead the game.
         </motion.p>
       </div>
@@ -75,39 +79,6 @@ const HomeBody = () => {
           mt: 4,
         }}
       />
-      <motion.div variants={textVariant()}>
-        <h1 style={{ display: 'flex', flex: 'start' }} className={`${styles.sectionHeadTextAbout} text-center font-medium text-[25px] sm:text-[30px] mt-20`}>
-          What sets us apart? <br />
-        </h1>
-      </motion.div>
-      <div className="flex flex-col sm:flex-row justify-start items-start min-h-[20vh] text-start font-medium px-4 sm:px-0">
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className="text-black text-[25px] sm:text-[46px] mt-4 sm:mt-0"
-        >
-          <strong style={{ fontWeight: 'bold' }}>A Personal Skin Assistant for Everyone, and Completely Free.</strong> <span className="text-[#756E6E]">Bree is redefining new <br></br> Pathways to understand and care about the skin, empowering self-knowledge through actionable insights, based on singular data that reflects skin identity.</span>
-        </motion.p>
-      </div>
-
-      <div className="video-wrapper" style={{ marginTop: 50 }}>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: videoInView ? 1 : 0, scale: videoInView ? 1 : 0.9 }}
-        transition={{ duration: 0.5 }}
-        className="video-card"
-      >
-        <div className="video-container">
-          <video
-            ref={videoRef}
-            src={videoAnimation}
-            loop
-            className="video"
-            controlsList="nodownload"
-            onContextMenu={(e) => e.preventDefault()}
-          />
-        </div>
-      </motion.div>
-    </div>
     </>
   );
 };

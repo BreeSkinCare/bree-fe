@@ -82,7 +82,7 @@ const Input = (props) => {
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="39"
+                                width="40"
                                 height="39"
                                 viewBox="0 0 39 39"
                                 fill="none"

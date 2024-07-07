@@ -7,6 +7,7 @@ import AboutFooter from './AboutFooter';
 import PrivacyPolicy from './PrivacyPolicy';
 import Footer from './Footer';
 import HomeBody from './HomeBody';
+import SecondaryBody from './SecondaryBody';
 import Story from './Story';
 import Tech from "./Tech";
 import Experience from "./Experience";
@@ -23,6 +24,7 @@ export {
   MeetBree,
   About,
   HomeBody,
+  SecondaryBody,
   Faq,
   AboutFooter,
   PrivacyPolicy,

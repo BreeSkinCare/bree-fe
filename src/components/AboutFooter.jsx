@@ -72,7 +72,7 @@ const Aboutfooter = () => {
                     or simply chat about skin health and wellness.
                   </>
                 )}
-              />
+            />
               <NestedAccordionItem 
                 title="What's your approach to AI safety?" 
                 content={(

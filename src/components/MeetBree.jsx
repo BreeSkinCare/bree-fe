@@ -126,8 +126,8 @@ const MeetBree = (props) => {
           <div className={`sidebar--container ${isOpen ? "open" : ""}`}>
             <div className="sidebar">
               <p style={{ fontFamily: 'Tomato Grotesk', fontSize: '15px', textAlign: 'start', marginTop: '200px', color: 'black', justifyContent: 'left' }}>
-                Enhance Your Bree Experience By<br /> Creating An Account.
-                Enjoy Seamless<br /> Integration Across All Our Channels,<br /> With Your Chat History Saved And<br /> Accessible Anytime, Anywhere.
+                Enhance Your Bree Experience <br /> By Creating An Account.
+                Enjoy <br /> Seamless Integration Across<br /> All Our Channels, With Your <br /> Chat History Saved And <br />Accessible Anytime, Anywhere.
                 <br /><br /><strong>Plus, It's All Completely Free!</strong>
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', justifyContent: 'left', marginTop: '100px' }}>
