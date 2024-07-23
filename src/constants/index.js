@@ -34,10 +34,10 @@ export const navLinks = [
     id: "story",
     title: "Story",
   },
-  {
-    id: "contact",
-    title: "Contact",
-  },
+  // {
+  //   id: "contact",
+  //   title: "Contact",
+  // },
   {
     id: "meet-bree",
     title: "Chat with Bree",

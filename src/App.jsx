@@ -49,20 +49,15 @@ const App = () => {
         {/* Add other routes as needed */}
       </Routes>
       {!excludedPaths.includes(location.pathname) && (
-        <div style={{ backgroundColor: '#F8EFCD' }}>
+        <div style={{ backgroundColor: '#FFFEF2' }}>
           <About />
-          <div style={{ backgroundColor: '#FFFEF2' }}>
-            <HomeBody />
-            <div style={{ backgroundColor: '#F8EFCD' }}>
-            <SecondaryBody />
-            </div>
-          </div>
+          <HomeBody />
+          <SecondaryBody />
           <div style={{ backgroundColor: '#FFFEF2' }}>
           <Faq />
           <AboutFooter />
           </div>
-
-          <div style={{ backgroundColor: '#FFFEF2' }}>
+          <div style={{ backgroundColor: '#FAF5EA' }}>
             <Footer />
           </div>
         </div>
@@ -71,10 +66,10 @@ const App = () => {
         <div style={{ backgroundColor: '#FFFEF2', minHeight: '100vh' }}>
           <Navbar />
           <Story />
+          <Experience />
           <div style={{ backgroundColor: '#FAF5EA' }}>
-            <Experience />
+            <Footer />
           </div>
-          <Footer />
         </div>
       )}
       {location.pathname === '/meet-bree' && (
