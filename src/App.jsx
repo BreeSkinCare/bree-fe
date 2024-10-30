@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import {
   About,
   Contact,
@@ -17,27 +17,32 @@ import {
 } from "./components";
 
 const scrollToTop = () => {
-  document.documentElement.style.scrollBehavior = 'auto'; // Disable smooth scrolling
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+  document.documentElement.style.scrollBehavior = 'auto';
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
   setTimeout(() => {
-    document.documentElement.style.scrollBehavior = ''; // Re-enable smooth scrolling
+    document.documentElement.style.scrollBehavior = '';
   }, 0);
 };
 
 const App = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const excludedPaths = ['/privacy-policy', '/contact', '/meet-bree', '/story'];
+  useEffect(() => {
+    // Redirect to /meet-bree if the initial path is "/"
+    if (location.pathname === '/') {
+      navigate('/meet-bree', { replace: true });
+    }
+  }, [location.pathname, navigate]);
 
-  // Ensure the page starts at the top
   useEffect(() => {
     scrollToTop();
   }, [location.pathname]);
 
   return (
     <>
-      {!excludedPaths.includes(location.pathname) && (
+      {location.pathname !== '/meet-bree' && (
         <div style={{ backgroundColor: '#000000' }}>
           <Navbar />
         </div>
@@ -46,35 +51,13 @@ const App = () => {
         <Route path="/" element={<Hero />} />
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        {/* Add other routes as needed */}
-      </Routes>
-      {location.pathname === '/meet-bree' && (  /* Fixing the syntax here */
-        <div style={{ backgroundColor: '#F5EADC', minHeight: '60vh' }}>
-          <MeetBree />
-        </div>
-      )}
-      {/* {!excludedPaths.includes(location.pathname) && (
-        // <div style={{ backgroundColor: '#F9F6F1' }}>
-        //   <About />
-        //   <div style={{ backgroundColor: '#FFFEF2' }}>
-        //     <HomeBody />
-        //   </div>
-        //   <Faq />
-        //   <AboutFooter />
-        //   <Footer />
-        // </div>
-      )} */}
-      {/* {location.pathname === '/story' && (
-        <div style={{ backgroundColor: '#FFFEF2', minHeight: '100vh' }}>
-          <Navbar />
-          <Story />
-          <Experience />
-          <div style={{ backgroundColor: '#FAF5EA' }}>
-            <Footer />
+        {/* Redirected route for meet-bree */}
+        <Route path="/meet-bree" element={
+          <div style={{ backgroundColor: '#F5EADC', minHeight: '60vh' }}>
+            <MeetBree />
           </div>
-        </div>
-      )} */}
-
+        }/>
+      </Routes>
     </>
   );
 };
