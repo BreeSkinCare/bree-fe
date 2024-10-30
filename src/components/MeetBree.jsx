@@ -102,8 +102,9 @@ const MeetBree = (props) => {
   };
 
   return (
-    <div className={`meet-bree-container ${isOpen ? "sidebar-open" : ""}`}>
-      {currentStep === 1 ? (
+    <div>
+      {/* {currentStep === 1 ? (
+        // Initial landing screen
         <div className="landing-screen">
           <motion.div variants={textVariant()}>
             <div className="landing-content">
@@ -115,7 +116,8 @@ const MeetBree = (props) => {
             </div>
           </motion.div>
         </div>
-      ) : (
+      ) : ( */}
+        // Chat interface with sidebar
         <div className="meet-bree-container">
           <FontAwesomeIcon
             icon={isOpen ? faTimes : faBars}
@@ -182,20 +184,7 @@ const MeetBree = (props) => {
             <Input addMessageToConversation={addMessageToConversation} />
           </div>
         </div>
-      )}
-
-      {isMobile && showForm && (
-        <Modal
-          open={showMobileModal}
-          onClose={closeForm}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <div className="mobile-form">
-            <LoginRegister mobileMode={true} showSignIn={showForm === 'login'} closeForm={closeForm} />
-          </div>
-        </Modal>
-      )}
+      {/* )} */}
 
       <Modal
         open={open}

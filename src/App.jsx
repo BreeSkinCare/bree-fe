@@ -48,21 +48,23 @@ const App = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         {/* Add other routes as needed */}
       </Routes>
-      {!excludedPaths.includes(location.pathname) && (
-        <div style={{ backgroundColor: '#FFFEF2' }}>
-          <About />
-          <HomeBody />
-          <SecondaryBody />
-          <div style={{ backgroundColor: '#FFFEF2' }}>
-          <Faq />
-          <AboutFooter />
-          </div>
-          <div style={{ backgroundColor: '#FAF5EA' }}>
-            <Footer />
-          </div>
+      {location.pathname === '/meet-bree' && (  /* Fixing the syntax here */
+        <div style={{ backgroundColor: '#F5EADC', minHeight: '60vh' }}>
+          <MeetBree />
         </div>
       )}
-      {location.pathname === '/story' && (
+      {/* {!excludedPaths.includes(location.pathname) && (
+        // <div style={{ backgroundColor: '#F9F6F1' }}>
+        //   <About />
+        //   <div style={{ backgroundColor: '#FFFEF2' }}>
+        //     <HomeBody />
+        //   </div>
+        //   <Faq />
+        //   <AboutFooter />
+        //   <Footer />
+        // </div>
+      )} */}
+      {/* {location.pathname === '/story' && (
         <div style={{ backgroundColor: '#FFFEF2', minHeight: '100vh' }}>
           <Navbar />
           <Story />
@@ -71,20 +73,8 @@ const App = () => {
             <Footer />
           </div>
         </div>
-      )}
-      {location.pathname === '/meet-bree' && (
-        <div>
-          <Navbar />
-          <MeetBree />
-        </div>
-      )}
-      {location.pathname === '/contact' && (
-        <div style={{ backgroundColor: '#FFFEF2' }}>
-          <Navbar />
-          <Contact />
-          <Footer />
-        </div>
-      )}
+      )} */}
+
     </>
   );
 };
