@@ -46,7 +46,7 @@ const MeetBree = (props) => {
 
   return (
     <div>
-      {currentStep === 1 ? (
+      {/* {currentStep === 1 ? (
         // Initial landing screen
         <div className="landing-screen">
           <div className="landing-content" style={{ textAlign: 'center',marginTop:100 }}>
@@ -57,7 +57,7 @@ const MeetBree = (props) => {
             </Button>
           </div>
         </div>
-      ) : (
+      ) : ( */}
         // Chat interface with sidebar
         <div className="meet-bree-container">
           <div className="sidebar--container">
@@ -86,7 +86,7 @@ const MeetBree = (props) => {
             <Input addMessageToConversation={addMessageToConversation} />
           </div>
         </div>
-      )}
+      {/* )} */}
 
       <Modal
         open={open}
