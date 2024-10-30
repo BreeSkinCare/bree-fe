@@ -10,7 +10,7 @@ export const fetchData = async (message) => {
     try {
         console.log("userid", userId)
         const data = await fetch(`https://general-runtime.voiceflow.com/state/user/${userId}/interact`, {
-            headers: { Authorization: "VF.DM.6527992b3fb9db0007fc871c.mNdNt1WoheihsAC1", 'Content-Type': 'application/json' },
+            headers: { Authorization: "VF.DM.66b1e7d0584732822df02b45.qDXSPPcQepaC6iiB", 'Content-Type': 'application/json' },
             method: "POST",
             body: JSON.stringify({
                 "request": {
@@ -35,7 +35,7 @@ export const getMemoryData = async () => {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            Authorization: "VF.DM.6527992b3fb9db0007fc871c.mNdNt1WoheihsAC1"
+            Authorization: "VF.DM.66b1e7d0584732822df02b45.qDXSPPcQepaC6iiB"
         }
     };
 
