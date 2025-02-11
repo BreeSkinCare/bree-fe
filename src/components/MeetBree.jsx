@@ -16,7 +16,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import { motion } from "framer-motion";
 
 const MeetBree = (props) => {
-  const [memory, setMemory] = useState();
+  const [memory, setMemory] = useState([]);
   const [open, setOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
@@ -30,8 +30,10 @@ const MeetBree = (props) => {
   const addMessageToConversation = (message) => {
     if (memory != null) {
       setMemory((prevMemory) => [...prevMemory, message]);
+      console.log('memory', memory);
     } else {
       setMemory(message);
+      console.log('memory', memory);
     }
   };
 
@@ -45,11 +47,12 @@ const MeetBree = (props) => {
       let memoryData = await getMemoryData();
       if (memoryData !== null) {
         setMemory(memoryData);
-      } else {
-        const postRes = await fetchData("hii");
-        memoryData = await getMemoryData();
-        setMemory(memoryData);
-      }
+      } 
+      // else {
+      //   const postRes = await fetchData("hii");
+      //   memoryData = await getMemoryData();
+      //   setMemory(memoryData);
+      // }
     } catch (error) {
       console.error("Error fetching or setting data:", error);
     }
@@ -117,7 +120,7 @@ const MeetBree = (props) => {
           </motion.div>
         </div>
       ) : ( */}
-        // Chat interface with sidebar
+        {/* Chat interface with sidebar */}
         <div className="meet-bree-container">
           <FontAwesomeIcon
             icon={isOpen ? faTimes : faBars}
@@ -180,6 +183,40 @@ const MeetBree = (props) => {
             </div>
           </div>
           <div className="main-div">
+            <div
+              style={{
+                position: "sticky",
+                top: 0,
+                display: "flex",
+                alignItems: "baseline",
+                padding: "12px 24px",
+                zIndex: 1000,
+              }}
+            >
+              <img
+                src= {logoBree}
+                alt="Bree Logo"
+                style={{
+                  width: "48px",
+                  marginRight: "12px",
+                }}
+              />
+              <h1
+                style={{
+                  fontFamily: "'Tomato Grotesk', sans-serif",
+                  fontSize: "18px",
+                  fontWeight: "normal",
+                  color: "#333",
+                  flex: 1,
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                - Your Personal Skin Assistant
+              </h1>
+            </div>
+
             <Chat messages={memory} />
             <Input addMessageToConversation={addMessageToConversation} />
           </div>

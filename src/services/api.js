@@ -2,13 +2,12 @@
 
 
 // const API_KEY = process.env.API_KEY;
-const userId = "usera6";
+const userId = "user1234";
 
 let conversation;
 
 export const fetchData = async (message) => {
     try {
-        console.log("userid", userId)
         const data = await fetch(`https://general-runtime.voiceflow.com/state/user/${userId}/interact`, {
             headers: { Authorization: "VF.DM.66b1e7d0584732822df02b45.qDXSPPcQepaC6iiB", 'Content-Type': 'application/json' },
             method: "POST",
@@ -42,9 +41,7 @@ export const getMemoryData = async () => {
     try {
         const response = await fetch(`https://general-runtime.voiceflow.com/state/user/${userId}`, optionsFetch);
         const responseData = await response.json();
-        console.log("u prvom get memory data ovo je response", responseData);
         if (Object.keys(responseData).length !== 0){
-            console.log("response data nije prazan objekat");
             conversation=responseData.variables._memory_;
             return conversation;
         }

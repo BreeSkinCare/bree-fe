@@ -11,10 +11,13 @@ const Message = ({ role, content }) => {
 
     return (
         <div ref={ref} className={`message ${role === "user" ? "client" : "admin"}`}>
-            <div className="message--info">
-                <Avatar className="input--B--image" src={`/images/${role === "user" ? "usi-small.png" : "B.png"}`} alt={role === "user" ? "User" : "Assistant"} />
+            {role === "user" ? 
+                <div className="message--info">
+                    <Avatar className="input--B--image" src={`/images/${role === "user" ? "usi-small.png" : "B.png"}`} alt={role === "user" ? "User" : "Assistant"} />
 
-            </div>
+                </div>
+                : ''
+            }
             <div className="message--content">
                 {content.split('\n').map((line, index) => (
                     <span key={index}>
